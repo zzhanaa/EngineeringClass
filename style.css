@@ -1,0 +1,51 @@
+:root {
+  --pink-main: #ff00ab;
+  --purple-main: #8873ff;
+  --cyan-main: #a5f7ff;
+  --black-bg: #303030;
+}
+body {
+  background-color: var(--black-bg);
+}
+/* Transisi lembut */
+.btn-group-hover .btn {
+  transition: all 0.3s ease;
+  padding: 6px 16px;
+  border: 2px solid transparent;
+}
+
+/* Tampilan default */
+.sign-up-btn {
+  border: 2px solid var(--pink-main);
+  color: var(--pink-main);
+  background: transparent;
+  border: 1px solid var(--pink-main);
+}
+.login-btn {
+  background: var(--purple-main);
+  color: white;
+  border: 1px solid var(--purple-main);
+}
+
+/* Hover Sign Up → tukar gaya keduanya */
+.btn-group-hover:hover .sign-up-btn {
+  background-color: var(--pink-main);
+  color: white;
+}
+.btn-group-hover:hover .login-btn {
+  background: transparent;
+  color: var(--purple-main);
+}
+.btn-group-hover .login-btn:hover {
+  background: transparent;
+  color: var(--pink-main);
+  border: 2px solid var(--pink-main);
+}
+.btn-group-hover:hover .sign-up-btn:hover {
+  background-color: var(--purple-main);
+  color: white;
+}
+
+.nav-item:hover {
+  font-weight: bolder;
+}
