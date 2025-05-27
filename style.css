@@ -3,9 +3,10 @@
   --purple-main: #8873ff;
   --cyan-main: #a5f7ff;
   --black-bg: #303030;
+  --main-black-bg: #212121;
 }
 body {
-  background-color: var(--black-bg);
+  background-color: var(--main-black-bg);
 }
 /* Transisi lembut */
 .btn-group-hover .btn {
