@@ -50,3 +50,30 @@ body {
 .nav-item:hover {
   font-weight: bolder;
 }
+
+.kelas-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  margin: 10px;
+}
+.swiper-container {
+  padding: 20px 0;
+  width: 100%;
+}
+
+.filter-row {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .filter-row select,
+  .filter-row button {
+    width: 100%;
+  }
+}

@@ -10,6 +10,9 @@
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
+    <!-- swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="style.css" />
     <title>Engineering Class</title>
   </head>
@@ -173,10 +176,240 @@
           </div>
         </div>
     </nav>
+
     <!-- Hero Secttion -->
-    <section></section>
+    <section class="hero-section bg-light py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- teks -->
+          <div class="col-md-6 text-center text-md-start">
+            <h1 class="display-5 fw-nold mb-3">
+              Belajar Software Teknik Sekarang!
+            </h1>
+            <p class="lead mb-4">
+              Tingkatkan skill digital teknik mu bersama mentor berpengalaman di industri.
+            </p>
+          </div>
+          <div>
+            <a href="#kelas" class="btn btn-primary me-2">Mulai Belajar</a>
+            <a href="#kelas" class="btn btn-outline-primary">Lihat Kelas</a>
+          </div>
+
+        <!-- image -->
+         <div class="col-md-6 text-center mt-4 mt-md-0">
+          <img src="file image" alt="Engineering Class Banner" class="img-fluid rounded shadow-sm" style="max-height:400px;">
+         </div>
+      </div>
+      </div>
+
+    </section>
     <!-- Fitur Layanan -->
-    <section></section>
+    <section class="bg-white py-5">
+      <div class="container">
+        <div class="row mb-4 text-center">
+          <div class="col">
+            <h2 class="fw-bold">Kenapa Engineering Class?</h2>
+            <p class="text-muted">Solusi tepat untuk meningkatkan keterampilan digital teknik mu</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Fakta tentang Software Teknik -->
+         <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <img src="icon-problem image" alt="Masalah Umum" class="mb-3" width="60">
+            <h5 class="fw-bold">Masalah Umum</h5>
+            <p class="text-muted">sebanyak bla bla bla responden kesilitan gini gini gini. <br> Solusinya gini gini.</p>
+          </div>
+         </div>
+         </div>
+        <!-- Keunggulan mentor -->
+         <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+          <div class="card-body text-center">
+            <img src="icon-mentor image" alt="Mentor Berpengalaman" class="mb-3" width="60">
+            <h5 class="fw-bold">Mentor Berpengalaman</h5>
+            <p class="text-muted">Kelas dipandu oleh profesional di industri teknik & konstruksi nyata.</p>
+          </div>
+         </div>  
+        </div>      
+        <!-- Fitur -->
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+              <img src="icon-features image" alt="Firue Unggulan" class="mb-3" width="60">
+              <h5 class="fw-bold">Fitur Unggulan</h5>
+              <p class="text-muted">Diskusi, tugas, dan sertifikat resmi — semua dalam satu platform.</p>
+            </div>
+          </div> 
+        </div>  
+      </div>
+
+    </section>
+
+    <!-- Daftar kelas -->
+     <section class="bg-light py-5" id="kelas">
+      <div class="container">
+        <div class="row mb-4 text-center">
+          <div class="col">
+            <h2 class="fw-bold">Daftar Kelas</h2>
+            <p class="text-muted">Pilih kelas sesuai kebutuhan dan tingkat keahlian mu</p>
+          </div>
+        </div>
+
+        <!-- Opsi -->
+         <div class="row mb-4">
+          <!-- FILTER -->
+          <!-- <div class="col-md-4 md-2">
+             <select class="form-select" id="filter-software">
+              <option selected>Semua</option>
+              <option>AutoCAD</option>
+              <option>SketchUp</option>
+              <option>Maxsurf</option>
+             </select>
+
+             <div class="col-md-4 mb-2">
+              <select class="form-select" id="filter-tingkat">
+                <option selected>Semua</option>
+                <option>Basic</option>
+                <option>Expert</option>
+              </select>
+             </div>
+
+             <div class="col-md-4 mb-2">
+              <select class="form-select" id="filter-format">
+                <option selected>Semua</option>
+                <option>Online</option>
+                <option>Offline</option>
+              </select>
+             </div>
+          </div> -->
+            <!-- FILTER PAKAI SWEEPER -->
+             <div class="filter-row">
+              <select id="filter-tingkat" class="form-select">
+                <option value="semua">Semua Tingkat</option>
+                <option value="basic">Basic</option>
+                <option value="expert">Expert</option>
+              </select>
+
+              <select id="filter-format"  class="form-select">
+                <option value="semua">Semua Format</option>
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+              </select>
+
+              <select id="filter-software" class="form-select">
+                <option value="semua">Semua Software</option>
+                <option value="AutoCAD">AutoCAD</option>
+                <option value="Maxsurf">Maxsurf</option>
+                <option value="SkethUp">SketchUp</option>
+              </select>
+
+              <button id="btn-search" class="btn btn-primary">Search</button>
+              <button id="btn-reset" class="btn btn-secondary">Reset</button>
+             </div>
+
+
+          <!-- Kelas -->
+           <!-- <div id="kelasCarousel" class="carousel slide" data-bs-ride="carousel">
+           <div class="carousel-inner">
+             <div class="col-md-4 class card" 
+              data-software="AutoCAD"
+              data-tingkat="Basic"
+              data-format="Online">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h5 class=""fw-bold>AutoCAD Basic</h5>
+                  <p class="text-muted mb-1">Mentor: XXXXX</p>
+                  <p class="text-muted mb-1">Online</p>
+                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
+                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
+                </div>
+              </div>
+             </div>
+
+             <div class="col-md-4 class card" 
+              data-software="AutoCAD"
+              data-tingkat="Basic"
+              data-format="Offline">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h5 class=""fw-bold>AutoCAD Basic</h5>
+                  <p class="text-muted mb-1">Mentor: XXXXX</p>
+                  <p class="text-muted mb-1">Offline</p>
+                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
+                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
+                </div>
+              </div>
+             </div>
+
+             <div class="col-md-4 class card" 
+              data-software="SketchUp"
+              data-tingkat="Basic"
+              data-format="Online">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h5 class=""fw-bold>SketchUp Basic</h5>
+                  <p class="text-muted mb-1">Mentor: XXXXX</p>
+                  <p class="text-muted mb-1">Online</p>
+                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
+                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
+                </div>
+              </div>
+             </div>
+
+             <div class="col-md-4 class card" 
+              data-software="Maxsurf"
+              data-tingkat="Basic"
+              data-format="Online">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h5 class=""fw-bold>Maxsurf Basic</h5>
+                  <p class="text-muted mb-1">Mentor: XXXXX</p>
+                  <p class="text-muted mb-1">Online</p>
+                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
+                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
+                </div>
+              </div>
+             </div>
+
+             <div class="col-md-4 class card" 
+              data-software="Maxsurf"
+              data-tingkat="Basic"
+              data-format="Online">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                  <h5 class=""fw-bold>Maxsurf Basic</h5>
+                  <p class="text-muted mb-1">Mentor: XXXXX</p>
+                  <p class="text-muted mb-1">Online</p>
+                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
+                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
+                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
+                </div>
+              </div>
+             </div>
+           </div>
+           </div> -->
+         <!-- List kelas diisi di JS -->
+          <div class="swiper-container">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper" id="kelas-wrapper">
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+          </div>
+         </div>
+        </div>
+      </div>
+
+     </section>
     <!-- Footer -->
     <footer></footer>
 
@@ -186,5 +419,155 @@
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+
+    <!-- swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
+    <!-- Filter Daftar Kelas -->
+     <!-- SWIPER JS -->
+      <script>
+      <!-- DATA KELAS -->
+       const kelasData= [
+        {tittle: "AutoCAD Basic (Online)", tingkat: "Basic", format:"online", software:"AutoCAD"},
+        {tittle: "Maxsurf Basic (Online)", tingkat: "Basic", format:"online", software:"Maxsurf"},
+        {tittle: "SketchUp Basic (Online)", tingkat: "Basic", format:"online", software:"SketchUp"},
+        {tittle: "AutoCAD Basic (Offline)", tingkat: "Basic", format:"offline", software:"AutoCAD"},
+        {tittle: "Maxsurf Basic (Offline)", tingkat: "Basic", format:"offline", software:"Maxsurf"},
+        {tittle: "SketchUp Basic (Offline)", tingkat: "Basic", format:"offline", software:"SketchUp"},
+        {tittle: "AutoCAD Expert(Online)", tingkat: "Expert", format:"online", software:"AutoCAD"},
+        {tittle: "Maxsurf Expert (Online)", tingkat: "Expert", format:"online", software:"Maxsurf"},
+        {tittle: "SketchUp Expert (Online)", tingkat: "Expert", format:"online", software:"SketchUp"},
+       ];
+       let swiper;
+      
+      function renderKelas(filterTingkat, filterFormat, filterSoftware) {
+      const wrapper = document.getElementById('kelas-wrapper');
+      wrapper.innerHTML = '';
+
+      // Filter data sesuai pilihan
+      const filteredKelas = kelasData.filter(kelas => {
+        return (filterTingkat === 'semua' || kelas.tingkat === filterTingkat) &&
+               (filterFormat === 'semua' || kelas.format === filterFormat) &&
+               (filterSoftware === 'semua' || kelas.software === filterSoftware);
+      });
+
+      if (filteredKelas.length === 0) {
+                wrapper.innerHTML = `
+                    <div class="swiper-slide">
+                        <div class="kelas-card text-center p-4">
+                            <p>Tidak ada kelas yang sesuai dengan filter</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                filteredKelas.forEach(kelas => {
+                    const slide = document.createElement('div');
+                    slide.className = 'swiper-slide';
+                    slide.innerHTML = `
+                        <div class="kelas-card">
+                            <h5>${kelas.title}</h5>
+                            <p class="text-muted">Software: ${kelas.software}</p>
+                            <p class="text-muted">Level: ${kelas.tingkat}</p>
+                            <p class="text-muted">Format: ${kelas.format}</p>
+                            <p class="text-primary fw-bold">${kelas.harga}</p>
+                            <button class="btn btn-sm btn-primary">Daftar Sekarang</button>
+                        </div>
+                    `;
+                    wrapper.appendChild(slide);
+                });
+            }
+
+            // Inisialisasi atau update Swiper
+            if (swiper) {
+                swiper.destroy(true, true);
+            }
+
+            swiper = new Swiper('.mySwiper', {
+                slidesPerView: 3, // Menampilkan 3 slide sekaligus
+                slidesPerGroup: 3, // Bergerak 3 slide sekaligus saat navigasi
+                spaceBetween: 20,
+                loop: false,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        slidesPerGroup: 1
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 3
+                    }
+                }
+            });
+        }
+
+        // Event Listeners
+        document.getElementById('btn-search').addEventListener('click', () => {
+            const tingkat = document.getElementById('filter-tingkat').value;
+            const format = document.getElementById('filter-format').value;
+            const software = document.getElementById('filter-software').value;
+            renderKelas(tingkat, format, software);
+        });
+
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            document.getElementById('filter-tingkat').value = 'semua';
+            document.getElementById('filter-format').value = 'semua';
+            document.getElementById('filter-software').value = 'semua';
+            renderKelas('semua', 'semua', 'semua');
+        });
+
+        // Inisialisasi awal
+        document.addEventListener('DOMContentLoaded', () => {
+            renderKelas('semua', 'semua', 'semua');
+        });
+    </script>
+     <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const softwareFilter = document.getElementById("filter-software");
+          const tingkatFilter = document.getElementById("filter-tingkat");
+          const formatFilter = document.getElementById("filter-format");
+          const classCards = document.querySelectorAll(".class");
+
+          function filterClasses() {
+            const selectedSoftware = softwareFilter.value;
+            const selectedTingkat = tingkatFilter.value;
+            const selectedFormat = formatFilter.value;
+
+            classCards.forEach(card => {
+              const software = card.getAttribute("data-software");
+              const tingkat = card.getAttribute("data-tingkat");
+              const format = card.getAttribute("data-format");
+
+              const matchSoftware = selectedSoftware === "Semua" || software === selectedSoftware;
+              const matchTingkat = selectedTingkat === "Semua" || tingkat === selectedTingkat;
+              const matchFormat = selectedFormat === "Semua" || format === selectedFormat;
+
+              if (matchSoftware && matchTingkat && matchFormat) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          }
+
+          softwareFilter.addEventListener("change", filterClasses);
+          tingkatFilter.addEventListener("change", filterClasses);
+          formatFilter.addEventListener("change", filterClasses);
+        });
+      </script> -->
+
+
   </body>
 </html>
