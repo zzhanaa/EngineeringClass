@@ -27,7 +27,6 @@ body {
   color: white;
   border: 1px solid var(--purple-main);
 }
-
 /* Hover Sign Up → tukar gaya keduanya */
 .btn-group-hover:hover .sign-up-btn {
   background-color: var(--pink-main);
@@ -62,6 +61,25 @@ body {
 .swiper-container {
   padding: 20px 0;
   width: 100%;
+}
+
+.hero-btn {
+  display: flex;
+  justify-content: left;
+}
+
+@media (max-width: 768px) {
+  .hero-btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* jarak antar tombol */
+  }
+
+  .hero-btn a {
+    width: 100%; /* tombol full width (opsional) */
+    max-width: 300px; /* agar tidak terlalu lebar */
+    text-align: center; /* teks tombol di tengah */
+  }
 }
 
 /* .filter-row {
