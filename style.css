@@ -67,19 +67,14 @@ body {
   display: flex;
   justify-content: left;
 }
-
-@media (max-width: 768px) {
-  .hero-btn {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* jarak antar tombol */
-  }
-
-  .hero-btn a {
-    width: 100%; /* tombol full width (opsional) */
-    max-width: 300px; /* agar tidak terlalu lebar */
-    text-align: center; /* teks tombol di tengah */
-  }
+.btn-class {
+  border-color: var(--pink-main);
+  color: var(--pink-main);
+  margin-left: 2em;
+}
+.btn-class:hover {
+  background-color: var(--pink-main);
+  color: white;
 }
 
 /* .filter-row {
@@ -95,3 +90,46 @@ body {
     width: 100%;
   }
 } */
+.btn-purple {
+  background-color: var(--purple-main);
+}
+.btn-purple:hover {
+  background-color: transparent;
+  border-color: var(--purple-main);
+  color: var(--purple-main);
+}
+.price {
+  color: var(--purple-main);
+}
+.btn-next,
+.btn-prev,
+.btn-pag {
+  color: var(--pink-main);
+}
+.foot-nav:hover {
+  font-weight: bolder;
+}
+.icon {
+  color: var(--pink-main);
+}
+.icon:hover {
+  opacity: 0.8;
+  size: 1.5;
+}
+
+@media (max-width: 768px) {
+  .hero-btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* jarak antar tombol */
+  }
+
+  .hero-btn a {
+    width: 100%; /* tombol full width (opsional) */
+    max-width: 300px; /* agar tidak terlalu lebar */
+    text-align: center; /* teks tombol di tengah */
+  }
+  .btn-class {
+    margin-left: 0;
+  }
+}

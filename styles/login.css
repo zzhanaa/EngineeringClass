@@ -1,0 +1,104 @@
+:root {
+  --pink-main: #ff00ab;
+  --purple-main: #8873ff;
+  --cyan-main: #a5f7ff;
+  --black-bg: #303030;
+  --main-black-bg: #212121;
+}
+
+body {
+  background: linear-gradient(135deg, var(--cyan-main), white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+}
+
+.card-login {
+  width: 100%;
+  max-width: 950px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.login-left,
+.login-right {
+  flex: 1 1 50%;
+  padding: 40px;
+}
+
+.login-right {
+  background: linear-gradient(
+    to top left,
+    var(--cyan-main),
+    var(--purple-main)
+  );
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login-right h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.login-right p {
+  max-width: 300px;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.btn-login {
+  background: linear-gradient(to right, var(--pink-main), var(--purple-main));
+  border: none;
+  color: white;
+  border-radius: 20px;
+}
+
+.btn-login:hover {
+  opacity: 0.9;
+}
+
+.social-icons i {
+  font-size: 24px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #555;
+}
+
+.social-icons i:hover {
+  color: #8e2de2;
+}
+
+@media (max-width: 767.98px) {
+  .login-left,
+  .login-right {
+    flex: 1 1 100%;
+    padding: 30px;
+    text-align: center;
+    align-items: center !important;
+  }
+
+  .login-right {
+    align-items: center;
+  }
+
+  .login-right h2 {
+    font-size: 28px;
+  }
+
+  .login-right p {
+    margin: 0 auto;
+  }
+}

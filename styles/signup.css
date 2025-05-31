@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+}
+
+.card-signup {
+  width: 100%;
+  max-width: 950px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.signup-left,
+.signup-right {
+  flex: 1 1 50%;
+  padding: 40px;
+}
+
+.signup-left {
+  background: linear-gradient(to top left, #a18cd1, #fbc2eb);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.signup-left h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.signup-left p {
+  max-width: 300px;
+}
+
+.signup-right {
+  background-color: white;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.btn-signup {
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  border: none;
+  color: white;
+  border-radius: 20px;
+}
+
+.btn-signup:hover {
+  opacity: 0.9;
+}
+
+.social-icons i {
+  font-size: 24px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #555;
+}
+
+.social-icons i:hover {
+  color: #11998e;
+}
+
+@media (max-width: 767.98px) {
+  .signup-left,
+  .signup-right {
+    flex: 1 1 100%;
+    padding: 30px;
+    text-align: center;
+    align-items: center !important;
+  }
+
+  .signup-left {
+    align-items: center;
+  }
+
+  .signup-left h2 {
+    font-size: 28px;
+  }
+
+  .signup-left p {
+    margin: 0 auto;
+  }
+}

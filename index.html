@@ -193,8 +193,8 @@
             </p>
           </div>
           <div class="hero-btn">
-            <a href="signup.html" class="btn btn-primary me-2" target="_blank">Mulai Belajar</a>
-            <a href="#kelas" class="btn btn-outline-primary">Lihat Kelas</a>
+            <a href="signup.html" class="btn btn-primary btn-purple" target="_blank">Mulai Belajar</a>
+            <a href="#kelas" class="btn btn-outline-primary btn-class">Lihat Kelas</a>
           </div>
 
         <!-- image -->
@@ -309,7 +309,7 @@
                 <option value="SkethUp">SketchUp</option>
               </select>
 
-              <button id="btn-search" class="btn btn-primary">Search</button>
+              <button id="btn-search" class="btn btn-primary btn-purple">Search</button>
               <button id="btn-reset" class="btn btn-secondary">Reset</button>
              </div>
 
@@ -403,9 +403,9 @@
             <div class="swiper mySwiper">
               <div class="swiper-wrapper" id="kelas-wrapper">
               </div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next btn-next"></div>
+              <div class="swiper-button-prev btn-prev"></div>
+              <div class="swiper-pagination btn-pag"></div>
           </div>
          </div>
         </div>
@@ -433,11 +433,11 @@
                 Navigasi
               </h6>
               <ul class="list-unstyled">
-                <li><a href="#hero-section" class="text-light text-decoration-none">Beranda</a></li>
-                <li><a href="#kelas" class="text-light text-decoration-none">Kelas Software</a></li>
-                <li><a href="Gigsync.html" class="text-light text-decoration-none">GigSync</a></li>
-                <li><a href="Innovest.html" class="text-light text-decoration-none">Innovest</a></li>
-                <li><a href="tentangkami.html" class="text-light text-decoration-none">Tentang Kami</a></li>
+                <li class="foot-nav"><a href="#hero-section" class="text-light text-decoration-none">Beranda</a></li>
+                <li class="foot-nav"><a href="#kelas" class="text-light text-decoration-none">Kelas Software</a></li>
+                <li class="foot-nav"><a href="Gigsync.html" class="text-light text-decoration-none">GigSync</a></li>
+                <li class="foot-nav"><a href="Innovest.html" class="text-light text-decoration-none">Innovest</a></li>
+                <li class="foot-nav"><a href="tentangkami.html" class="text-light text-decoration-none">Tentang Kami</a></li>
               </ul>
             </div>
 
@@ -452,10 +452,10 @@
 
              <!-- Media Sosial -->
              <div class="d-flex gap-3 mt-2 justify-content-center">
-              <a href="#" class="tetx-light"><i class="bi bi-instagram fs-5"></i></a>
-              <a href="#" class="tetx-light"><i class="bi bi-facebook fs-5"></i></a>
-              <a href="#" class="tetx-light"><i class="bi bi-linkedin fs-5"></i></a>
-              <a href="#" class="tetx-light"><i class="bi bi-youtube fs-5"></i></a>
+              <a href="#" class="tetx-light icon"><i class="bi bi-instagram fs-5"></i></a>
+              <a href="#" class="tetx-light icon"><i class="bi bi-facebook fs-5"></i></a>
+              <a href="#" class="tetx-light icon"><i class="bi bi-linkedin fs-5"></i></a>
+              <a href="#" class="tetx-light icon"><i class="bi bi-youtube fs-5"></i></a>
              </div>
         </div>
       </div>
@@ -520,8 +520,8 @@
                             <p class="text-muted  px-3">Software: ${kelas.software}</p>
                             <p class="text-muted  px-3">Level: ${kelas.tingkat}</p>
                             <p class="text-muted  px-3">Format: ${kelas.format}</p>
-                            <p class="text-primary fw-bold  px-3">${kelas.harga}</p>
-                            <button class="btn btn-sm btn-primary  mx-3 mb-2">Daftar Sekarang</button>
+                            <p class="text-primary fw-bold  px-3 price">${kelas.harga}</p>
+                            <button class="btn btn-sm btn-primary  mx-3 mb-2 btn-purple">Daftar Sekarang</button>
                         </div>
                     `;
                     wrapper.appendChild(slide);
