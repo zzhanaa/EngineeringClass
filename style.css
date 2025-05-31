@@ -117,6 +117,37 @@ body {
   size: 1.5;
 }
 
+/* TENTANG KAMI */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white;
+}
+.desk-about-us {
+  color: white;
+}
+.vm-card {
+  border: 2px solid var(--pink-main);
+  border-radius: 2em;
+}
+.vm {
+  color: black;
+}
+.team-card img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.team-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .hero-btn {
     flex-direction: column;
