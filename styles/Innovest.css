@@ -1,0 +1,122 @@
+:root {
+  --pink-main: #ff00ab;
+  --purple-main: #8873ff;
+  --cyan-main: #a5f7ff;
+  --black-bg: #303030;
+  --main-black-bg: #212121;
+}
+
+body {
+  background: #f8f9fa;
+  font-family: "Segoe UI", sans-serif;
+}
+/* Transisi lembut */
+.btn-group-hover .btn {
+  transition: all 0.3s ease;
+  padding: 6px 16px;
+  border: 2px solid transparent;
+}
+
+/* Tampilan default */
+.sign-up-btn {
+  border: 2px solid var(--pink-main);
+  color: var(--pink-main);
+  background: transparent;
+  border: 1px solid var(--pink-main);
+}
+.login-btn {
+  background: var(--purple-main);
+  color: white;
+  border: 1px solid var(--purple-main);
+}
+/* Hover Sign Up → tukar gaya keduanya */
+.btn-group-hover:hover .sign-up-btn {
+  background-color: var(--pink-main);
+  color: white;
+}
+.btn-group-hover:hover .login-btn {
+  background: transparent;
+  color: var(--purple-main);
+}
+.btn-group-hover .login-btn:hover {
+  background: transparent;
+  color: var(--pink-main);
+  border: 2px solid var(--pink-main);
+}
+.btn-group-hover:hover .sign-up-btn:hover {
+  background-color: var(--purple-main);
+  color: white;
+}
+
+.nav-item:hover {
+  font-weight: bolder;
+}
+.btn-purple {
+  background-color: var(--purple-main);
+}
+.btn-purple:hover {
+  background-color: transparent;
+  border-color: var(--purple-main);
+  color: var(--purple-main);
+}
+.price {
+  color: var(--purple-main);
+}
+.btn-next,
+.btn-prev,
+.btn-pag {
+  color: var(--pink-main);
+}
+.foot-nav:hover {
+  font-weight: bolder;
+}
+.icon {
+  color: var(--pink-main);
+}
+.icon:hover {
+  opacity: 0.8;
+  size: 1.5;
+}
+
+.gradient-bg {
+  background: linear-gradient(to right, #00bcd4, #0097a7);
+  color: white;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card-idea {
+  transition: all 0.3s ease-in-out;
+}
+
+.card-idea:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn-gradient {
+  background: linear-gradient(to right, #00bcd4, #0097a7);
+  color: white;
+  border: none;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.form-section {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.investor-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}

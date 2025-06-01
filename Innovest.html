@@ -21,7 +21,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/Innovest.css" />
     <title>Engineering Class</title>
   </head>
   <body>
@@ -184,6 +184,98 @@
           </div>
         </div>
     </nav>
+
+    <!-- Hero Section -->
+<section class="gradient-bg text-center py-5">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Kembangkan Ide Bisnismu, Temukan Investor!</h1>
+    <p class="lead">Platform kolaborasi antara inovator muda dan investor yang visioner.</p>
+    <a href="#form-upload" class="btn btn-light btn-lg mt-3">Upload Ide Bisnis</a>
+  </div>
+</section>
+
+<!-- Upload Form -->
+<section id="form-upload" class="py-5">
+  <div class="container">
+    <div class="form-section">
+      <h4 class="section-title">💡 Upload Ide Bisnismu</h4>
+      <form>
+        <div class="mb-3">
+          <label for="judul" class="form-label">Judul Ide</label>
+          <input type="text" class="form-control" id="judul" placeholder="Contoh: Smart Irrigation App">
+        </div>
+        <div class="mb-3">
+          <label for="deskripsi" class="form-label">Deskripsi Singkat</label>
+          <textarea class="form-control" id="deskripsi" rows="3" placeholder="Gambaran umum ide bisnismu..."></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="kategori" class="form-label">Kategori</label>
+          <select class="form-select" id="kategori">
+            <option>Teknologi</option>
+            <option>Pertanian</option>
+            <option>Energi</option>
+            <option>Finansial</option>
+            <option>Produk Digital</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-gradient">Kirim Ide</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Ide Bisnis -->
+<section class="py-5">
+  <div class="container">
+    <h4 class="section-title">🚀 Eksplorasi Ide Bisnis</h4>
+    <div class="row g-4">
+      <!-- Card Ide -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card card-idea p-3 border-0 rounded-4 shadow-sm bg-white">
+          <h5>Smart Farming IoT</h5>
+          <small class="text-muted">oleh Rizky Mahendra</small>
+          <p class="mt-2 text-muted">Sistem monitoring kelembaban tanah dan nutrisi berbasis sensor IoT untuk petani kecil.</p>
+          <span class="badge bg-info-subtle text-info">Pertanian</span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card card-idea p-3 border-0 rounded-4 shadow-sm bg-white">
+          <h5>GreenPay</h5>
+          <small class="text-muted">oleh Clara Putri</small>
+          <p class="mt-2 text-muted">Dompet digital dengan cashback untuk transaksi produk ramah lingkungan.</p>
+          <span class="badge bg-info-subtle text-info">Finansial</span>
+        </div>
+      </div>
+
+      <!-- Tambah lebih banyak ide -->
+    </div>
+  </div>
+</section>
+
+<!-- Investor -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h4 class="section-title">🤝 Profil Investor</h4>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="investor-card">
+          <h6 class="fw-bold">Dr. Budi Santosa</h6>
+          <p class="mb-1 text-muted">Investor bidang teknologi dan edukasi.</p>
+          <button class="btn btn-sm btn-outline-primary">Hubungi Investor</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="investor-card">
+          <h6 class="fw-bold">Angela Limantara</h6>
+          <p class="mb-1 text-muted">Fokus pada startup hijau dan ekonomi kreatif.</p>
+          <button class="btn btn-sm btn-outline-primary">Hubungi Investor</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="bg-dark text-light pt-5 pb-3">

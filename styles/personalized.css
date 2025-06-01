@@ -5,8 +5,10 @@
   --black-bg: #303030;
   --main-black-bg: #212121;
 }
+
 body {
-  background-color: var(--main-black-bg);
+  background: #f8f9fa;
+  font-family: "Segoe UI", sans-serif;
 }
 /* Transisi lembut */
 .btn-group-hover .btn {
@@ -49,47 +51,6 @@ body {
 .nav-item:hover {
   font-weight: bolder;
 }
-
-.kelas-card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  margin: 10px;
-}
-.swiper-container {
-  padding: 20px 0;
-  width: 100%;
-}
-
-.hero-btn {
-  display: flex;
-  justify-content: left;
-}
-.btn-class {
-  border-color: var(--pink-main);
-  color: var(--pink-main);
-  margin-left: 2em;
-}
-.btn-class:hover {
-  background-color: var(--pink-main);
-  color: white;
-}
-
-/* .filter-row {
-  margin-bottom: 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-@media (max-width: 768px) {
-  .filter-row select,
-  .filter-row button {
-    width: 100%;
-  }
-} */
 .btn-purple {
   background-color: var(--purple-main);
 }
@@ -117,54 +78,52 @@ body {
   size: 1.5;
 }
 
-/* TENTANG KAMI */
-.section-title {
-  font-weight: 700;
-  margin-bottom: 20px;
+.sidebar {
+  min-height: 100vh;
+  background-color: #0d6efd;
   color: white;
 }
-.desk-about-us {
+.sidebar a {
   color: white;
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  transition: 0.3s;
 }
-.vm-card {
-  border: 2px solid var(--pink-main);
-  border-radius: 2em;
+.sidebar a:hover {
+  background-color: #0a58ca;
 }
-.vm {
-  color: black;
-}
-.team-card img {
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-.team-card {
+.dashboard-header {
   background-color: white;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-  text-align: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
 }
-
-/* Gygsync */
-
-/* Innovest */
+.progress-bar {
+  background-color: #0d6efd;
+}
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0d6efd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+}
+.hamburger {
+  display: none;
+}
 
 @media (max-width: 768px) {
-  .hero-btn {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* jarak antar tombol */
+  .sidebar {
+    display: none;
   }
-
-  .hero-btn a {
-    width: 100%; /* tombol full width (opsional) */
-    max-width: 300px; /* agar tidak terlalu lebar */
-    text-align: center; /* teks tombol di tengah */
-  }
-  .btn-class {
-    margin-left: 0;
+  .hamburger {
+    display: inline-block;
+    font-size: 24px;
+    margin-left: 1rem;
+    cursor: pointer;
   }
 }
