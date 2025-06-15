@@ -27,12 +27,11 @@
         margin: 0;
         padding: 0;
         height: 100vh;
-        overflow: hidden;
       }
 
       /* Navbar */
       .navbar-custom {
-        background-color: color-mix(in srgb, var(--purple-main) 30%, white);
+        background-color: color-mix(in srgb, var(--primary-color) 30%, white);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         padding: 15px 0;
         position: sticky;
@@ -88,7 +87,15 @@
       /* Main Layout */
       .main-container {
         display: flex;
+        flex-direction: column;
         height: calc(100vh - 72px);
+      }
+
+      /* Sidebar and Content Wrapper */
+      .content-wrapper {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
       }
 
       /* Sidebar */
@@ -97,9 +104,6 @@
         background-color: white;
         border-right: 1px solid #e9ecef;
         overflow-y: auto;
-        height: 100%;
-        position: sticky;
-        top: 72px;
       }
 
       .course-item {
@@ -135,7 +139,7 @@
       /* Content Area */
       .content-area {
         flex: 1;
-        padding: 30px;
+        padding: 20px;
         background-color: #f8f9fa;
         overflow-y: auto;
       }
@@ -180,23 +184,19 @@
       }
 
       @media (max-width: 768px) {
-        .main-container {
+        .content-wrapper {
           flex-direction: column;
-          height: auto;
         }
 
         .sidebar {
           width: 100%;
           border-right: none;
           border-bottom: 1px solid #e9ecef;
-          position: relative;
-          top: 0;
-          height: auto;
           max-height: 300px;
         }
 
         .content-area {
-          overflow-y: visible;
+          padding: 15px;
         }
       }
     </style>
@@ -223,139 +223,147 @@
 
     <!-- Main Content -->
     <div class="main-container">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="course-item">
-          <div class="course-title" onclick="toggleLessons(this, 'autocad')">
-            AutoCAD - Basic
-            <i class="bi bi-chevron-down" id="autocad-arrow"></i>
+      <div class="content-wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="course-item">
+            <div class="course-title" onclick="toggleLessons(this, 'autocad')">
+              AutoCAD - Basic
+              <i class="bi bi-chevron-down" id="autocad-arrow"></i>
+            </div>
+            <div class="lesson-list" id="autocad-lessons">
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Pengenalan AutoCAD', 'autocad-intro', 'AC-001')"
+              >
+                Pengenalan AutoCAD
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Tools Dasar', 'autocad-tools', 'AC-002')"
+              >
+                Tools Dasar
+              </div>
+              <div
+                class="lesson-item active"
+                onclick="loadLesson('Membuat Objek 2D', 'autocad-2d', 'AC-003')"
+              >
+                Membuat Objek 2D
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Modifikasi Objek', 'autocad-modify', 'AC-004')"
+              >
+                Modifikasi Objek
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Layout dan Printing', 'autocad-print', 'AC-005')"
+              >
+                Layout dan Printing
+              </div>
+            </div>
           </div>
-          <div class="lesson-list" id="autocad-lessons">
+
+          <div class="course-item">
+            <div class="course-title" onclick="toggleLessons(this, 'maxsurf')">
+              Maxsurf - Expert
+              <i class="bi bi-chevron-down" id="maxsurf-arrow"></i>
+            </div>
+            <div class="lesson-list" id="maxsurf-lessons">
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Konsep Dasar Naval Architecture', 'maxsurf-naval', 'MS-001')"
+              >
+                Konsep Dasar Naval Architecture
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Modeling Kapal Dasar', 'maxsurf-modeling', 'MS-002')"
+              >
+                Modeling Kapal Dasar
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Analisis Hidrostatik', 'maxsurf-hydro', 'MS-003')"
+              >
+                Analisis Hidrostatik
+              </div>
+            </div>
+          </div>
+
+          <div class="course-item">
             <div
-              class="lesson-item"
-              onclick="loadLesson('Pengenalan AutoCAD', 'autocad-intro', 'AC-001')"
+              class="course-title"
+              onclick="toggleLessons(this, 'solidworks')"
             >
-              Pengenalan AutoCAD
+              SolidWorks - Basic
+              <i class="bi bi-chevron-down" id="solidworks-arrow"></i>
             </div>
             <div
-              class="lesson-item"
-              onclick="loadLesson('Tools Dasar', 'autocad-tools', 'AC-002')"
+              class="lesson-list"
+              id="solidworks-lessons"
+              style="display: none"
             >
-              Tools Dasar
-            </div>
-            <div
-              class="lesson-item active"
-              onclick="loadLesson('Membuat Objek 2D', 'autocad-2d', 'AC-003')"
-            >
-              Membuat Objek 2D
-            </div>
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Modifikasi Objek', 'autocad-modify', 'AC-004')"
-            >
-              Modifikasi Objek
-            </div>
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Layout dan Printing', 'autocad-print', 'AC-005')"
-            >
-              Layout dan Printing
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Interface dan Tools', 'solidworks-interface', 'SW-001')"
+              >
+                Interface dan Tools
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Part Modeling', 'solidworks-part', 'SW-002')"
+              >
+                Part Modeling
+              </div>
+              <div
+                class="lesson-item"
+                onclick="loadLesson('Assembly', 'solidworks-assembly', 'SW-003')"
+              >
+                Assembly
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="course-item">
-          <div class="course-title" onclick="toggleLessons(this, 'maxsurf')">
-            Maxsurf - Expert
-            <i class="bi bi-chevron-down" id="maxsurf-arrow"></i>
-          </div>
-          <div class="lesson-list" id="maxsurf-lessons">
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Konsep Dasar Naval Architecture', 'maxsurf-naval', 'MS-001')"
-            >
-              Konsep Dasar Naval Architecture
-            </div>
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Modeling Kapal Dasar', 'maxsurf-modeling', 'MS-002')"
-            >
-              Modeling Kapal Dasar
-            </div>
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Analisis Hidrostatik', 'maxsurf-hydro', 'MS-003')"
-            >
-              Analisis Hidrostatik
-            </div>
-          </div>
-        </div>
+        <!-- Content Area -->
+        <div class="content-area">
+          <h4 class="mb-4" id="lesson-title">Membuat Objek 2D</h4>
 
-        <div class="course-item">
-          <div class="course-title" onclick="toggleLessons(this, 'solidworks')">
-            SolidWorks - Basic
-            <i class="bi bi-chevron-down" id="solidworks-arrow"></i>
-          </div>
-          <div
-            class="lesson-list"
-            id="solidworks-lessons"
-            style="display: none"
-          >
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Interface dan Tools', 'solidworks-interface', 'SW-001')"
-            >
-              Interface dan Tools
-            </div>
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Part Modeling', 'solidworks-part', 'SW-002')"
-            >
-              Part Modeling
-            </div>
-            <div
-              class="lesson-item"
-              onclick="loadLesson('Assembly', 'solidworks-assembly', 'SW-003')"
-            >
-              Assembly
+          <div class="video-container">
+            <div class="video-placeholder" id="video-placeholder">
+              <div class="text-center">
+                <i class="bi bi-play-circle-fill" style="font-size: 3rem"></i>
+                <p id="video-title">
+                  Video Pembelajaran AutoCAD - Membuat Objek 2D
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Content Area -->
-      <div class="content-area">
-        <h4 class="mb-4" id="lesson-title">Membuat Objek 2D</h4>
-
-        <div class="video-container">
-          <div class="video-placeholder" id="video-placeholder">
-            <div class="text-center">
-              <i class="bi bi-play-circle-fill" style="font-size: 3rem"></i>
-              <p id="video-title">
-                Video Pembelajaran AutoCAD - Membuat Objek 2D
+          <div class="summary-card">
+            <h5 class="summary-title">Rangkuman Materi</h5>
+            <div id="lesson-summary">
+              <p>Dalam pelajaran ini, kita akan mempelajari:</p>
+              <ol>
+                <li>Menggunakan perintah LINE untuk membuat garis</li>
+                <li>Membuat lingkaran dengan perintah CIRCLE</li>
+                <li>
+                  Menggunakan perintah RECTANGLE untuk membuat persegi panjang
+                </li>
+                <li>Teknik snap dan grid untuk presisi</li>
+                <li>Latihan membuat denah sederhana</li>
+              </ol>
+              <p class="mt-3">
+                <strong>Tips:</strong> Gunakan shortcut keyboard 'L' untuk Line
+                dan 'C' untuk Circle untuk mempercepat workflow Anda.
               </p>
             </div>
           </div>
-        </div>
 
-        <div class="summary-card">
-          <h5 class="summary-title">Rangkuman Materi</h5>
-          <div id="lesson-summary">
-            <p>Dalam pelajaran ini, kita akan mempelajari:</p>
-            <ol>
-              <li>Menggunakan perintah LINE untuk membuat garis</li>
-              <li>Membuat lingkaran dengan perintah CIRCLE</li>
-              <li>
-                Menggunakan perintah RECTANGLE untuk membuat persegi panjang
-              </li>
-              <li>Teknik snap dan grid untuk presisi</li>
-              <li>Latihan membuat denah sederhana</li>
-            </ol>
-            <p class="mt-3">
-              <strong>Tips:</strong> Gunakan shortcut keyboard 'L' untuk Line
-              dan 'C' untuk Circle untuk mempercepat workflow Anda.
-            </p>
-          </div>
+          <!-- Additional content to make it scrollable -->
+          <div style="height: 1000px"></div>
         </div>
       </div>
     </div>
