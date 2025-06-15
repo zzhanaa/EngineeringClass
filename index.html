@@ -291,7 +291,7 @@
              </div>
           </div> -->
             <!-- FILTER PAKAI SWEEPER -->
-             <div class="d-flex flex-column flex-md-row gap-2">
+             <!-- <div class="d-flex flex-column flex-md-row gap-2">
               <select id="filter-tingkat" class="form-select">
                 <option value="semua">Semua Tingkat</option>
                 <option value="basic">Basic</option>
@@ -313,8 +313,33 @@
 
               <button id="btn-search" class="btn btn-primary btn-purple">Search</button>
               <button id="btn-reset" class="btn btn-secondary">Reset</button>
-             </div>
+             </div> -->
+            <!-- Di bagian filter (ganti select software menjadi jangka waktu) -->
+<div class="d-flex flex-column flex-md-row gap-2">
+  <select id="filter-tingkat" class="form-select">
+    <option value="semua">Semua Tingkat</option>
+    <option value="Basic">Basic</option>
+    <option value="Expert">Expert</option>
+    <option value="Semua">Semua</option>
+  </select>
 
+  <select id="filter-format" class="form-select">
+    <option value="semua">Semua Format</option>
+    <option value="Video + Modul">Video + Modul</option>
+    <option value="Video + Modul + Live Class + Record">Live Class</option>
+    <option value="Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade">Full Package</option>
+  </select>
+
+  <select id="filter-waktu" class="form-select">
+    <option value="semua">Semua Durasi</option>
+    <option value="1 Bulan">1 Bulan</option>
+    <option value="3 Bulan">3 Bulan</option>
+    <option value="6 Bulan">6 Bulan</option>
+  </select>
+
+  <button id="btn-search" class="btn btn-primary btn-purple">Search</button>
+  <button id="btn-reset" class="btn btn-secondary">Reset</button>
+</div>
 
           <!-- Kelas -->
            <!-- <div id="kelasCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -482,108 +507,97 @@
      <!-- SWIPER JS -->
       <script>
       <!-- DATA KELAS -->
-       const kelasData= [
-        {title: "AutoCAD Basic (Online)", tingkat: "Basic", format:"online", software:"AutoCAD", harga:""},
-        {title: "Maxsurf Basic (Online)", tingkat: "Basic", format:"online", software:"Maxsurf", harga:""},
-        {title: "SketchUp Basic (Online)", tingkat: "Basic", format:"online", software:"SketchUp", harga:""},
-        {title: "AutoCAD Basic (Offline)", tingkat: "Basic", format:"offline", software:"AutoCAD", harga:""},
-        {title: "Maxsurf Basic (Offline)", tingkat: "Basic", format:"offline", software:"Maxsurf", harga:""},
-        {title: "SketchUp Basic (Offline)", tingkat: "Basic", format:"offline", software:"SketchUp", harga:""},
-        {title: "AutoCAD Expert (Online)", tingkat: "Expert", format:"online", software:"AutoCAD", harga:""},
-        {title: "Maxsurf Expert (Online)", tingkat: "Expert", format:"online", software:"Maxsurf", harga:""},
-        {title: "SketchUp Expert (Online)", tingkat: "Expert", format:"online", software:"SketchUp", harga:""},
-       ];
-       let swiper;
-      
-      function renderKelas(filterTingkat, filterFormat, filterSoftware) {
-      const wrapper = document.getElementById('kelas-wrapper');
-      wrapper.innerHTML = '';
+       const kelasData = [
+  {title: "Bronze Kelas (Basic)", tingkat: "Basic", format:"Video + Modul", waktu:"3 Bulan", harga:"150000"},
+  {title: "Bronze Kelas (Expert)", tingkat: "Expert", format:"Video + Modul", waktu:"3 Bulan", harga:"250000"},
+  {title: "Silver Kelas (Basic)", tingkat: "Basic", format:"Video + Modul + Live Class + Record", waktu:"3 Bulan", harga:"300000"},
+  {title: "Silver Kelas (Expert)", tingkat: "Expert", format:"Video + Modul + Live Class + Record", waktu:"3 Bulan", harga:"500000"},
+  {title: "Gold", tingkat: "Semua", format:"Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade", waktu:"3 Bulan", harga:"750000"},
+  {title: "Temu", tingkat: "Semua", format:"Video + Modul + Live Class + Record + Konsultasi dengan Expert", waktu:"1 Rangkaian Sesi", harga:"750000"},
+];
 
-      // Filter data sesuai pilihan
-      const filteredKelas = kelasData.filter(kelas => {
-        return (filterTingkat === 'semua' || kelas.tingkat === filterTingkat) &&
-               (filterFormat === 'semua' || kelas.format === filterFormat) &&
-               (filterSoftware === 'semua' || kelas.software === filterSoftware);
-      });
+let swiper;
 
-      if (filteredKelas.length === 0) {
-                wrapper.innerHTML = `
-                        <div class="text-center py-5 w-100">
-                            <p>Tidak ada kelas yang sesuai dengan filter</p>
-                        </div>
-                `;
-            } else {
-                filteredKelas.forEach(kelas => {
-                    const slide = document.createElement('div');
-                    slide.className = 'swiper-slide';
-                    slide.innerHTML = `
-                        <div class="kelas-card">
-                            <h5 class="text-center">${kelas.title}</h5>
-                            <p class="text-muted  px-3">Software: ${kelas.software}</p>
-                            <p class="text-muted  px-3">Level: ${kelas.tingkat}</p>
-                            <p class="text-muted  px-3">Format: ${kelas.format}</p>
-                            <p class="text-primary fw-bold  px-3 price">${kelas.harga}</p>
-                            <button class="btn btn-sm btn-primary  mx-3 mb-2 btn-purple">Daftar Sekarang</button>
-                        </div>
-                    `;
-                    wrapper.appendChild(slide);
-                });
-            }
+function renderKelas(filterTingkat, filterFormat, filterWaktu) {
+  const wrapper = document.getElementById('kelas-wrapper');
+  wrapper.innerHTML = '';
 
-            // Inisialisasi atau update Swiper
-            if (swiper) {
-                swiper.destroy(true, true);
-            }
+  // Filter data sesuai pilihan
+  const filteredKelas = kelasData.filter(kelas => {
+    return (filterTingkat === 'semua' || kelas.tingkat === filterTingkat) &&
+           (filterFormat === 'semua' || kelas.format === filterFormat) &&
+           (filterWaktu === 'semua' || kelas.waktu === filterWaktu);
+  });
 
-            swiper = new Swiper('.mySwiper', {
-                slidesPerView: 3, // Menampilkan 3 slide sekaligus
-                slidesPerGroup: 1, // Bergerak 3 slide sekaligus saat navigasi
-                spaceBetween: 20,
-                loop: false,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    0: {
-                        slidesPerView: 1,
-                        slidesPerGroup: 1
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        slidesPerGroup: 1
-                    },
-                    992: {
-                        slidesPerView: 3,
-                        slidesPerGroup: 1
-                    }
-                }
-            });
-        }
+  if (filteredKelas.length === 0) {
+    wrapper.innerHTML = `
+      <div class="text-center py-5 w-100">
+        <p>Tidak ada kelas yang sesuai dengan filter</p>
+      </div>
+    `;
+  } else {
+    filteredKelas.forEach(kelas => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      slide.innerHTML = `
+        <div class="kelas-card">
+          <h5 class="text-center">${kelas.title}</h5>
+          <p class="text-muted px-3">Jangka Waktu: ${kelas.waktu}</p>
+          <p class="text-muted px-3">Level: ${kelas.tingkat}</p>
+          <p class="text-muted px-3">Format: ${kelas.format}</p>
+          <p class="text-primary fw-bold px-3 price">${kelas.harga === "Custom" ? "Harga Custom" : "Rp" + kelas.harga}</p>
+          <button class="btn btn-sm btn-primary mx-3 mb-2 btn-purple">Daftar Sekarang</button>
+        </div>
+      `;
+      wrapper.appendChild(slide);
+    });
+  }
 
-        // Event Listeners
-        document.getElementById('btn-search').addEventListener('click', () => {
-            const tingkat = document.getElementById('filter-tingkat').value;
-            const format = document.getElementById('filter-format').value;
-            const software = document.getElementById('filter-software').value;
-            renderKelas(tingkat, format, software);
-        });
+  // Inisialisasi atau update Swiper
+  if (swiper) {
+    swiper.destroy(true, true);
+  }
 
-        document.getElementById('btn-reset').addEventListener('click', () => {
-            document.getElementById('filter-tingkat').value = 'semua';
-            document.getElementById('filter-format').value = 'semua';
-            document.getElementById('filter-software').value = 'semua';
-            renderKelas('semua', 'semua', 'semua');
-        });
+  swiper = new Swiper('.mySwiper', {
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: 20,
+    loop: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      0: { slidesPerView: 1, slidesPerGroup: 1 },
+      768: { slidesPerView: 2, slidesPerGroup: 1 },
+      992: { slidesPerView: 3, slidesPerGroup: 1 }
+    }
+  });
+}
 
-        // Inisialisasi awal
-        document.addEventListener('DOMContentLoaded', () => {
-            renderKelas('semua', 'semua', 'semua');
-        });
+// Event Listeners
+document.getElementById('btn-search').addEventListener('click', () => {
+  const tingkat = document.getElementById('filter-tingkat').value;
+  const format = document.getElementById('filter-format').value;
+  const waktu = document.getElementById('filter-waktu').value;
+  renderKelas(tingkat, format, waktu);
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  document.getElementById('filter-tingkat').value = 'semua';
+  document.getElementById('filter-format').value = 'semua';
+  document.getElementById('filter-waktu').value = 'semua';
+  renderKelas('semua', 'semua', 'semua');
+});
+
+// Inisialisasi awal
+document.addEventListener('DOMContentLoaded', () => {
+  renderKelas('semua', 'semua', 'semua');
+});
     </script>
      <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
