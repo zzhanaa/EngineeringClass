@@ -106,6 +106,21 @@
         overflow-y: auto;
       }
 
+      .nav-section {
+        padding: 15px 0;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .nav-section-title {
+        padding: 10px 20px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
       .course-item {
         padding: 10px 20px;
         cursor: pointer;
@@ -144,6 +159,52 @@
         overflow-y: auto;
       }
 
+      /* Certificate Section */
+      .certificate-container {
+        display: none; /* Hidden by default */
+      }
+
+      .certificate-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .certificate-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+      }
+
+      .certificate-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .certificate-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .certificate-info {
+        padding: 15px;
+      }
+
+      .certificate-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .certificate-date {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+
+      /* Video and Summary Section */
       .video-container {
         background-color: #000;
         border-radius: 8px;
@@ -198,6 +259,10 @@
         .content-area {
           padding: 15px;
         }
+
+        .certificate-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -226,144 +291,208 @@
       <div class="content-wrapper">
         <!-- Sidebar -->
         <div class="sidebar">
-          <div class="course-item">
-            <div class="course-title" onclick="toggleLessons(this, 'autocad')">
-              AutoCAD - Basic
-              <i class="bi bi-chevron-down" id="autocad-arrow"></i>
+          <div class="nav-section">
+            <div class="nav-section-title" onclick="toggleSection('courses')">
+              Kelas Saya
+              <i class="bi bi-chevron-down" id="courses-arrow"></i>
             </div>
-            <div class="lesson-list" id="autocad-lessons">
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Pengenalan AutoCAD', 'autocad-intro', 'AC-001')"
-              >
-                Pengenalan AutoCAD
+            <div id="courses-section">
+              <div class="course-item">
+                <div
+                  class="course-title"
+                  onclick="toggleLessons(this, 'autocad')"
+                >
+                  AutoCAD - Basic
+                  <i class="bi bi-chevron-down" id="autocad-arrow"></i>
+                </div>
+                <div class="lesson-list" id="autocad-lessons">
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Pengenalan AutoCAD', 'autocad-intro', 'AC-001')"
+                  >
+                    Pengenalan AutoCAD
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Tools Dasar', 'autocad-tools', 'AC-002')"
+                  >
+                    Tools Dasar
+                  </div>
+                  <div
+                    class="lesson-item active"
+                    onclick="loadLesson('Membuat Objek 2D', 'autocad-2d', 'AC-003')"
+                  >
+                    Membuat Objek 2D
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Modifikasi Objek', 'autocad-modify', 'AC-004')"
+                  >
+                    Modifikasi Objek
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Layout dan Printing', 'autocad-print', 'AC-005')"
+                  >
+                    Layout dan Printing
+                  </div>
+                </div>
               </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Tools Dasar', 'autocad-tools', 'AC-002')"
-              >
-                Tools Dasar
+
+              <div class="course-item">
+                <div
+                  class="course-title"
+                  onclick="toggleLessons(this, 'maxsurf')"
+                >
+                  Maxsurf - Expert
+                  <i class="bi bi-chevron-down" id="maxsurf-arrow"></i>
+                </div>
+                <div class="lesson-list" id="maxsurf-lessons">
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Konsep Dasar Naval Architecture', 'maxsurf-naval', 'MS-001')"
+                  >
+                    Konsep Dasar Naval Architecture
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Modeling Kapal Dasar', 'maxsurf-modeling', 'MS-002')"
+                  >
+                    Modeling Kapal Dasar
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Analisis Hidrostatik', 'maxsurf-hydro', 'MS-003')"
+                  >
+                    Analisis Hidrostatik
+                  </div>
+                </div>
               </div>
-              <div
-                class="lesson-item active"
-                onclick="loadLesson('Membuat Objek 2D', 'autocad-2d', 'AC-003')"
-              >
-                Membuat Objek 2D
-              </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Modifikasi Objek', 'autocad-modify', 'AC-004')"
-              >
-                Modifikasi Objek
-              </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Layout dan Printing', 'autocad-print', 'AC-005')"
-              >
-                Layout dan Printing
+
+              <div class="course-item">
+                <div
+                  class="course-title"
+                  onclick="toggleLessons(this, 'solidworks')"
+                >
+                  SolidWorks - Basic
+                  <i class="bi bi-chevron-down" id="solidworks-arrow"></i>
+                </div>
+                <div
+                  class="lesson-list"
+                  id="solidworks-lessons"
+                  style="display: none"
+                >
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Interface dan Tools', 'solidworks-interface', 'SW-001')"
+                  >
+                    Interface dan Tools
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Part Modeling', 'solidworks-part', 'SW-002')"
+                  >
+                    Part Modeling
+                  </div>
+                  <div
+                    class="lesson-item"
+                    onclick="loadLesson('Assembly', 'solidworks-assembly', 'SW-003')"
+                  >
+                    Assembly
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="course-item">
-            <div class="course-title" onclick="toggleLessons(this, 'maxsurf')">
-              Maxsurf - Expert
-              <i class="bi bi-chevron-down" id="maxsurf-arrow"></i>
-            </div>
-            <div class="lesson-list" id="maxsurf-lessons">
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Konsep Dasar Naval Architecture', 'maxsurf-naval', 'MS-001')"
-              >
-                Konsep Dasar Naval Architecture
-              </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Modeling Kapal Dasar', 'maxsurf-modeling', 'MS-002')"
-              >
-                Modeling Kapal Dasar
-              </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Analisis Hidrostatik', 'maxsurf-hydro', 'MS-003')"
-              >
-                Analisis Hidrostatik
-              </div>
-            </div>
-          </div>
-
-          <div class="course-item">
-            <div
-              class="course-title"
-              onclick="toggleLessons(this, 'solidworks')"
-            >
-              SolidWorks - Basic
-              <i class="bi bi-chevron-down" id="solidworks-arrow"></i>
-            </div>
-            <div
-              class="lesson-list"
-              id="solidworks-lessons"
-              style="display: none"
-            >
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Interface dan Tools', 'solidworks-interface', 'SW-001')"
-              >
-                Interface dan Tools
-              </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Part Modeling', 'solidworks-part', 'SW-002')"
-              >
-                Part Modeling
-              </div>
-              <div
-                class="lesson-item"
-                onclick="loadLesson('Assembly', 'solidworks-assembly', 'SW-003')"
-              >
-                Assembly
-              </div>
+          <div class="nav-section">
+            <div class="nav-section-title" onclick="showCertificates()">
+              Sertifikat Saya
+              <i class="bi bi-award"></i>
             </div>
           </div>
         </div>
 
         <!-- Content Area -->
         <div class="content-area">
-          <h4 class="mb-4" id="lesson-title">Membuat Objek 2D</h4>
+          <!-- Lesson Content (default view) -->
+          <div id="lesson-content">
+            <h4 class="mb-4" id="lesson-title">Membuat Objek 2D</h4>
 
-          <div class="video-container">
-            <div class="video-placeholder" id="video-placeholder">
-              <div class="text-center">
-                <i class="bi bi-play-circle-fill" style="font-size: 3rem"></i>
-                <p id="video-title">
-                  Video Pembelajaran AutoCAD - Membuat Objek 2D
+            <div class="video-container">
+              <div class="video-placeholder" id="video-placeholder">
+                <div class="text-center">
+                  <i class="bi bi-play-circle-fill" style="font-size: 3rem"></i>
+                  <p id="video-title">
+                    Video Pembelajaran AutoCAD - Membuat Objek 2D
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="summary-card">
+              <h5 class="summary-title">Rangkuman Materi</h5>
+              <div id="lesson-summary">
+                <p>Dalam pelajaran ini, kita akan mempelajari:</p>
+                <ol>
+                  <li>Menggunakan perintah LINE untuk membuat garis</li>
+                  <li>Membuat lingkaran dengan perintah CIRCLE</li>
+                  <li>
+                    Menggunakan perintah RECTANGLE untuk membuat persegi panjang
+                  </li>
+                  <li>Teknik snap dan grid untuk presisi</li>
+                  <li>Latihan membuat denah sederhana</li>
+                </ol>
+                <p class="mt-3">
+                  <strong>Tips:</strong> Gunakan shortcut keyboard 'L' untuk
+                  Line dan 'C' untuk Circle untuk mempercepat workflow Anda.
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="summary-card">
-            <h5 class="summary-title">Rangkuman Materi</h5>
-            <div id="lesson-summary">
-              <p>Dalam pelajaran ini, kita akan mempelajari:</p>
-              <ol>
-                <li>Menggunakan perintah LINE untuk membuat garis</li>
-                <li>Membuat lingkaran dengan perintah CIRCLE</li>
-                <li>
-                  Menggunakan perintah RECTANGLE untuk membuat persegi panjang
-                </li>
-                <li>Teknik snap dan grid untuk presisi</li>
-                <li>Latihan membuat denah sederhana</li>
-              </ol>
-              <p class="mt-3">
-                <strong>Tips:</strong> Gunakan shortcut keyboard 'L' untuk Line
-                dan 'C' untuk Circle untuk mempercepat workflow Anda.
-              </p>
+          <!-- Certificate Content -->
+          <div class="certificate-container" id="certificate-content">
+            <h4 class="mb-4">Sertifikat Saya</h4>
+
+            <div class="certificate-grid">
+              <div class="certificate-card">
+                <img
+                  src="images/sertifikat1.png"
+                  class="certificate-image"
+                  alt="Sertifikat AutoCAD"
+                />
+                <div class="certificate-info">
+                  <div class="certificate-title">AutoCAD Basic</div>
+                  <div class="certificate-date">Diperoleh: 15 Januari 2023</div>
+                </div>
+              </div>
+
+              <div class="certificate-card">
+                <img
+                  src="images/sertifikat1.png"
+                  class="certificate-image"
+                  alt="Sertifikat SolidWorks"
+                />
+                <div class="certificate-info">
+                  <div class="certificate-title">SolidWorks Basic</div>
+                  <div class="certificate-date">Diperoleh: 2 Maret 2023</div>
+                </div>
+              </div>
+
+              <div class="certificate-card">
+                <img
+                  src="images/sertifikat1.png"
+                  class="certificate-image"
+                  alt="Sertifikat Maxsurf"
+                />
+                <div class="certificate-info">
+                  <div class="certificate-title">Maxsurf Expert</div>
+                  <div class="certificate-date">Diperoleh: 10 Mei 2023</div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- Additional content to make it scrollable -->
-          <div style="height: 1000px"></div>
         </div>
       </div>
     </div>
@@ -481,6 +610,22 @@
         }
       };
 
+      // Toggle section (courses)
+      function toggleSection(sectionId) {
+        const section = document.getElementById(`${sectionId}-section`);
+        const arrow = document.getElementById(`${sectionId}-arrow`);
+
+        if (section.style.display === "none") {
+          section.style.display = "block";
+          arrow.classList.remove("bi-chevron-down");
+          arrow.classList.add("bi-chevron-up");
+        } else {
+          section.style.display = "none";
+          arrow.classList.remove("bi-chevron-up");
+          arrow.classList.add("bi-chevron-down");
+        }
+      }
+
       // Toggle lesson list (with single dropdown behavior)
       function toggleLessons(element, courseId) {
         const lessonList = document.getElementById(`${courseId}-lessons`);
@@ -512,6 +657,10 @@
 
       // Load lesson content
       function loadLesson(title, videoId, lessonCode) {
+        // Show lesson content and hide certificates
+        document.getElementById("lesson-content").style.display = "block";
+        document.getElementById("certificate-content").style.display = "none";
+
         // Update active lesson
         document.querySelectorAll(".lesson-item").forEach((i) => {
           i.classList.remove("active");
@@ -539,6 +688,15 @@
         document.getElementById("lesson-summary").innerHTML = lesson.summary;
 
         // Scroll to top of content
+        document.querySelector(".content-area").scrollTo(0, 0);
+      }
+
+      // Show certificates
+      function showCertificates() {
+        document.getElementById("lesson-content").style.display = "none";
+        document.getElementById("certificate-content").style.display = "block";
+
+        // Scroll to top
         document.querySelector(".content-area").scrollTo(0, 0);
       }
     </script>
