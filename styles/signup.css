@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  background: linear-gradient(135deg, #fbd4ee, white, #f3f1ff);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ body {
 }
 
 .signup-left {
-  background: linear-gradient(to top left, #a18cd1, #fbc2eb);
+  background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
   color: white;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@ body {
 }
 
 .btn-signup {
-  background: linear-gradient(to right, #11998e, #38ef7d);
+  background: linear-gradient(to right, #a18cd1, #fbc2eb);
   border: none;
   color: white;
   border-radius: 20px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,199 +7,535 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
     />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Bootstrap icon -->
+    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <!-- swiper-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
-
-    <link rel="stylesheet" href="styles/personalized.css" />
     <title>Engineering Class</title>
+    <style>
+      :root {
+        --primary-color: #8873ff;
+        --secondary-color: #2c3e50;
+        --accent-color: #a5f7ff;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Navbar */
+      .navbar-custom {
+        background-color: color-mix(in srgb, var(--purple-main) 30%, white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--secondary-color);
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .user-menu {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 200px;
+        z-index: 1000;
+        display: none;
+      }
+
+      .user-menu.show {
+        display: block;
+      }
+
+      .user-menu a {
+        display: block;
+        padding: 10px 15px;
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      .user-menu a:hover {
+        background-color: #f8f9fa;
+      }
+
+      /* Main Layout */
+      .main-container {
+        display: flex;
+        height: calc(100vh - 72px);
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 280px;
+        background-color: white;
+        border-right: 1px solid #e9ecef;
+        overflow-y: auto;
+        height: 100%;
+        position: sticky;
+        top: 72px;
+      }
+
+      .course-item {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .course-title {
+        font-weight: 600;
+        color: var(--secondary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .lesson-list {
+        padding-left: 20px;
+        display: none;
+      }
+
+      .lesson-item {
+        padding: 8px 0;
+        color: #495057;
+        cursor: pointer;
+      }
+
+      .lesson-item:hover,
+      .lesson-item.active {
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      /* Content Area */
+      .content-area {
+        flex: 1;
+        padding: 30px;
+        background-color: #f8f9fa;
+        overflow-y: auto;
+      }
+
+      .video-container {
+        background-color: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        aspect-ratio: 16/9;
+      }
+
+      .video-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        background-color: #333;
+      }
+
+      .summary-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .summary-title {
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      @media (max-width: 992px) {
+        .sidebar {
+          width: 250px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-container {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .sidebar {
+          width: 100%;
+          border-right: none;
+          border-bottom: 1px solid #e9ecef;
+          position: relative;
+          top: 0;
+          height: auto;
+          max-height: 300px;
+        }
+
+        .content-area {
+          overflow-y: visible;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="d-flex">
-      <!-- Sidebar -->
-      <div class="sidebar p-3" id="sidebar">
-        <h5>Menu</h5>
-        <a href="#">Kelas Saya</a>
-        <a href="#">Sertifikat</a>
-        <a href="#">Akun & Pembayaran</a>
-        <a href="#">Riwayat Aktivitas</a>
-      </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Engineering Class</a>
 
-      <!-- Main Content -->
-      <div class="flex-grow-1">
-        <div
-          class="dashboard-header d-flex justify-content-between align-items-center"
-        >
-          <div>
-            <span class="d-block fw-bold">Dashboard Pengguna</span>
+        <div class="d-flex align-items-center">
+          <div class="user-avatar" onclick="toggleUserMenu()">
+            <i class="bi bi-person-fill"></i>
+            <div class="user-menu" id="userMenu">
+              <a href="#"><i class="bi bi-gear me-2"></i> Pengaturan Akun</a>
+              <a href="index.html"
+                ><i class="bi bi-box-arrow-right me-2"></i> Keluar</a
+              >
+            </div>
           </div>
-          <div class="d-flex align-items-center">
-            <i class="fas fa-bars hamburger" onclick="toggleSidebar()"></i>
-            <div class="user-icon ms-3">
-              <i class="fas fa-user"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="course-item">
+          <div class="course-title" onclick="toggleLessons(this, 'autocad')">
+            AutoCAD - Basic
+            <i class="bi bi-chevron-down" id="autocad-arrow"></i>
+          </div>
+          <div class="lesson-list" id="autocad-lessons">
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Pengenalan AutoCAD', 'autocad-intro', 'AC-001')"
+            >
+              Pengenalan AutoCAD
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Tools Dasar', 'autocad-tools', 'AC-002')"
+            >
+              Tools Dasar
+            </div>
+            <div
+              class="lesson-item active"
+              onclick="loadLesson('Membuat Objek 2D', 'autocad-2d', 'AC-003')"
+            >
+              Membuat Objek 2D
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Modifikasi Objek', 'autocad-modify', 'AC-004')"
+            >
+              Modifikasi Objek
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Layout dan Printing', 'autocad-print', 'AC-005')"
+            >
+              Layout dan Printing
             </div>
           </div>
         </div>
 
-        <div class="container py-4">
-          <!-- Status Kelas -->
-          <h5 class="mb-3">📘 Progres Kelas Saya</h5>
-          <div class="mb-4">
-            <p class="mb-1">AutoCAD Beginner - Modul 3/5</p>
-            <div class="progress">
-              <div class="progress-bar" style="width: 60%">60%</div>
+        <div class="course-item">
+          <div class="course-title" onclick="toggleLessons(this, 'maxsurf')">
+            Maxsurf - Expert
+            <i class="bi bi-chevron-down" id="maxsurf-arrow"></i>
+          </div>
+          <div class="lesson-list" id="maxsurf-lessons">
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Konsep Dasar Naval Architecture', 'maxsurf-naval', 'MS-001')"
+            >
+              Konsep Dasar Naval Architecture
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Modeling Kapal Dasar', 'maxsurf-modeling', 'MS-002')"
+            >
+              Modeling Kapal Dasar
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Analisis Hidrostatik', 'maxsurf-hydro', 'MS-003')"
+            >
+              Analisis Hidrostatik
             </div>
           </div>
-          <div class="mb-4">
-            <p class="mb-1">SketchUp 3D Design - Selesai ✅</p>
-            <div class="progress">
-              <div class="progress-bar bg-success" style="width: 100%">
-                100%
-              </div>
+        </div>
+
+        <div class="course-item">
+          <div class="course-title" onclick="toggleLessons(this, 'solidworks')">
+            SolidWorks - Basic
+            <i class="bi bi-chevron-down" id="solidworks-arrow"></i>
+          </div>
+          <div
+            class="lesson-list"
+            id="solidworks-lessons"
+            style="display: none"
+          >
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Interface dan Tools', 'solidworks-interface', 'SW-001')"
+            >
+              Interface dan Tools
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Part Modeling', 'solidworks-part', 'SW-002')"
+            >
+              Part Modeling
+            </div>
+            <div
+              class="lesson-item"
+              onclick="loadLesson('Assembly', 'solidworks-assembly', 'SW-003')"
+            >
+              Assembly
             </div>
           </div>
-          <div class="mb-4">
-            <p class="mb-1">SAP2000 Struktur - Belum Mulai</p>
-            <div class="progress">
-              <div class="progress-bar bg-secondary" style="width: 0%">0%</div>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area">
+        <h4 class="mb-4" id="lesson-title">Membuat Objek 2D</h4>
+
+        <div class="video-container">
+          <div class="video-placeholder" id="video-placeholder">
+            <div class="text-center">
+              <i class="bi bi-play-circle-fill" style="font-size: 3rem"></i>
+              <p id="video-title">
+                Video Pembelajaran AutoCAD - Membuat Objek 2D
+              </p>
             </div>
           </div>
+        </div>
 
-          <!-- Sertifikat -->
-          <h5 class="mt-5 mb-3">🎓 Sertifikat</h5>
-          <ul>
-            <li>SketchUp 3D Design - <a href="#">Download</a></li>
-          </ul>
-
-          <!-- Riwayat GigSync -->
-          <h5 class="mt-5 mb-3">🛠️ Riwayat GigSync</h5>
-          <ul>
-            <li>Proyek: Simulasi CFD untuk Sungai - Status: Selesai</li>
-            <li>Proyek: RAB Bangunan Rumah - Status: Dalam Proses</li>
-          </ul>
-
-          <!-- Riwayat Innovest -->
-          <h5 class="mt-5 mb-3">💡 Riwayat Innovest</h5>
-          <ul>
-            <li>Ide: Smart Irrigation App - Status: Dilihat 18 investor</li>
-            <li>Ide: Drone untuk Survey Lahan - Status: Menunggu verifikasi</li>
-          </ul>
+        <div class="summary-card">
+          <h5 class="summary-title">Rangkuman Materi</h5>
+          <div id="lesson-summary">
+            <p>Dalam pelajaran ini, kita akan mempelajari:</p>
+            <ol>
+              <li>Menggunakan perintah LINE untuk membuat garis</li>
+              <li>Membuat lingkaran dengan perintah CIRCLE</li>
+              <li>
+                Menggunakan perintah RECTANGLE untuk membuat persegi panjang
+              </li>
+              <li>Teknik snap dan grid untuk presisi</li>
+              <li>Latihan membuat denah sederhana</li>
+            </ol>
+            <p class="mt-3">
+              <strong>Tips:</strong> Gunakan shortcut keyboard 'L' untuk Line
+              dan 'C' untuk Circle untuk mempercepat workflow Anda.
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
     <script>
-      function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.style.display =
-          sidebar.style.display === "block" ? "none" : "block";
+      // Lesson data
+      const lessonData = {
+        "AC-001": {
+          title: "Pengenalan AutoCAD",
+          video: "autocad-intro",
+          summary: `
+                    <p>Dalam pelajaran pengenalan ini, Anda akan belajar:</p>
+                    <ol>
+                        <li>Sejarah dan perkembangan AutoCAD</li>
+                        <li>Antarmuka pengguna AutoCAD</li>
+                        <li>Konsep dasar koordinat</li>
+                        <li>Membuka dan menyimpan file</li>
+                        <li>Navigasi workspace dasar</li>
+                    </ol>
+                    <p class="mt-3"><strong>Catatan:</strong> AutoCAD pertama kali dirilis pada tahun 1982 oleh Autodesk.</p>
+                `,
+        },
+        "AC-002": {
+          title: "Tools Dasar",
+          video: "autocad-tools",
+          summary: `
+                    <p>Materi tools dasar AutoCAD mencakup:</p>
+                    <ol>
+                        <li>Toolbar Draw (Line, Circle, Rectangle, etc.)</li>
+                        <li>Toolbar Modify (Move, Copy, Rotate, etc.)</li>
+                        <li>Layer management</li>
+                        <li>Properties panel</li>
+                        <li>Command line essentials</li>
+                    </ol>
+                    <p class="mt-3"><strong>Tips:</strong> Gunakan command alias untuk mempercepat pekerjaan (L=Line, C=Circle, etc.)</p>
+                `,
+        },
+        "AC-003": {
+          title: "Membuat Objek 2D",
+          video: "autocad-2d",
+          summary: `
+                    <p>Dalam pelajaran ini, kita akan mempelajari:</p>
+                    <ol>
+                        <li>Menggunakan perintah LINE untuk membuat garis</li>
+                        <li>Membuat lingkaran dengan perintah CIRCLE</li>
+                        <li>Menggunakan perintah RECTANGLE untuk membuat persegi panjang</li>
+                        <li>Teknik snap dan grid untuk presisi</li>
+                        <li>Latihan membuat denah sederhana</li>
+                    </ol>
+                    <p class="mt-3"><strong>Tips:</strong> Gunakan shortcut keyboard 'L' untuk Line dan 'C' untuk Circle untuk mempercepat workflow Anda.</p>
+                `,
+        },
+        "MS-001": {
+          title: "Konsep Dasar Naval Architecture",
+          video: "maxsurf-naval",
+          summary: `
+                    <p>Pelajaran ini membahas dasar-dasar naval architecture:</p>
+                    <ol>
+                        <li>Terminologi kapal dan bagian-bagiannya</li>
+                        <li>Prinsip apung dan stabilitas</li>
+                        <li>Konsep garis air dan bentuk lambung</li>
+                        <li>Dasar perhitungan hidrostatik</li>
+                        <li>Pengenalan standar klasifikasi</li>
+                    </ol>
+                    <p class="mt-3"><strong>Fakta:</strong> Naval architecture telah berkembang sejak abad ke-16 dengan metode rancangan yang semakin canggih.</p>
+                `,
+        },
+        "MS-002": {
+          title: "Modeling Kapal Dasar",
+          video: "maxsurf-modeling",
+          summary: `
+                    <p>Materi modeling kapal dasar meliputi:</p>
+                    <ol>
+                        <li>Membuat garis bentuk (lines plan)</li>
+                        <li>Membangun permukaan lambung</li>
+                        <li>Teknik kontrol kurva</li>
+                        <li>Membuat deck dan superstructure</li>
+                        <li>Verifikasi geometri kapal</li>
+                    </ol>
+                    <p class="mt-3"><strong>Praktik:</strong> Latihan membuat model kapal sederhana dengan panjang 10 meter.</p>
+                `,
+        },
+        "SW-002": {
+          title: "Part Modeling",
+          video: "solidworks-part",
+          summary: `
+                    <p>Pelajaran part modeling mencakup:</p>
+                    <ol>
+                        <li>Membuat sketch 2D</li>
+                        <li>Extrude dan revolve features</li>
+                        <li>Reference geometry</li>
+                        <li>Pattern dan mirror</li>
+                        <li>Draft dan shell</li>
+                    </ol>
+                    <p class="mt-3"><strong>Proyek:</strong> Buat model bracket sederhana dengan fitur-fitur dasar.</p>
+                `,
+        },
+      };
+
+      // Toggle user menu
+      function toggleUserMenu() {
+        document.getElementById("userMenu").classList.toggle("show");
+      }
+
+      // Close user menu when clicking outside
+      window.onclick = function (event) {
+        if (
+          !event.target.matches(".user-avatar") &&
+          !event.target.matches(".user-avatar *")
+        ) {
+          var menus = document.getElementsByClassName("user-menu");
+          for (var i = 0; i < menus.length; i++) {
+            menus[i].classList.remove("show");
+          }
+        }
+      };
+
+      // Toggle lesson list (with single dropdown behavior)
+      function toggleLessons(element, courseId) {
+        const lessonList = document.getElementById(`${courseId}-lessons`);
+        const icon = document.getElementById(`${courseId}-arrow`);
+
+        // Close all other dropdowns
+        document.querySelectorAll(".lesson-list").forEach((list) => {
+          if (list.id !== `${courseId}-lessons`) {
+            list.style.display = "none";
+            const otherIcon = document.getElementById(
+              list.id.replace("-lessons", "-arrow")
+            );
+            otherIcon.classList.remove("bi-chevron-up");
+            otherIcon.classList.add("bi-chevron-down");
+          }
+        });
+
+        // Toggle current dropdown
+        if (lessonList.style.display === "block") {
+          lessonList.style.display = "none";
+          icon.classList.remove("bi-chevron-up");
+          icon.classList.add("bi-chevron-down");
+        } else {
+          lessonList.style.display = "block";
+          icon.classList.remove("bi-chevron-down");
+          icon.classList.add("bi-chevron-up");
+        }
+      }
+
+      // Load lesson content
+      function loadLesson(title, videoId, lessonCode) {
+        // Update active lesson
+        document.querySelectorAll(".lesson-item").forEach((i) => {
+          i.classList.remove("active");
+        });
+        event.target.classList.add("active");
+
+        // Update title
+        document.getElementById("lesson-title").textContent = title;
+
+        // Update video (in a real app, this would load actual video)
+        const videoPlaceholder = document.getElementById("video-placeholder");
+        videoPlaceholder.innerHTML = `
+                <div class="text-center">
+                    <i class="bi bi-play-circle-fill" style="font-size: 3rem;"></i>
+                    <p>Video Pembelajaran - ${title}</p>
+                    <small class="text-muted">Video ID: ${videoId}</small>
+                </div>
+            `;
+
+        // Update summary
+        const lesson = lessonData[lessonCode] || {
+          title: title,
+          summary: `<p>Konten untuk ${title} sedang dalam pengembangan.</p>`,
+        };
+        document.getElementById("lesson-summary").innerHTML = lesson.summary;
+
+        // Scroll to top of content
+        document.querySelector(".content-area").scrollTo(0, 0);
       }
     </script>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light pt-5 pb-3">
-      <div class="container">
-        <div class="row">
-          <!-- kolom 1: Tentang Kami Singkat-->
-          <div class="col-md-4 mb-4">
-            <h5 class="text-uppercase fw-bold">Engineering Class</h5>
-            <p>
-              Platform pembelajaran software teknik dan penghubung profesional,
-              pelajar, serta investor di bidang rekayasa.
-            </p>
-          </div>
-
-          <!-- kolom 2: Navgigasi Cepat -->
-          <div class="col-md-4 mb-4">
-            <h6 class="fw-semibold">Navigasi</h6>
-            <ul class="list-unstyled">
-              <li class="foot-nav">
-                <a
-                  href="index.html#hero-section"
-                  class="text-light text-decoration-none"
-                  >Beranda</a
-                >
-              </li>
-              <li class="foot-nav">
-                <a
-                  href="index.html#kelas"
-                  class="text-light text-decoration-none"
-                  >Kelas Software</a
-                >
-              </li>
-              <li class="foot-nav">
-                <a href="Gigsync.html" class="text-light text-decoration-none"
-                  >GigSync</a
-                >
-              </li>
-              <li class="foot-nav">
-                <a href="Innovest.html" class="text-light text-decoration-none"
-                  >Innovest</a
-                >
-              </li>
-              <li class="foot-nav">
-                <a
-                  href="tentangkami.html"
-                  class="text-light text-decoration-none"
-                  >Tentang Kami</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- kolom 3: Kontak -->
-          <div class="col-md-4 mb-4">
-            <h6 class="fw-semibold">Hubungi Kami</h6>
-            <p>Email: cs@engineeringclass.com</p>
-            <p>Telp: +62 811-1111-1111</p>
-          </div>
-
-          <!-- Media Sosial -->
-          <div class="d-flex gap-3 mt-2 justify-content-center">
-            <a href="#" class="tetx-light icon"
-              ><i class="bi bi-instagram fs-5"></i
-            ></a>
-            <a href="#" class="tetx-light icon"
-              ><i class="bi bi-facebook fs-5"></i
-            ></a>
-            <a href="#" class="tetx-light icon"
-              ><i class="bi bi-linkedin fs-5"></i
-            ></a>
-            <a href="#" class="tetx-light icon"
-              ><i class="bi bi-youtube fs-5"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-      <hr class="border-light" />
-      <div class="text-center small">
-        &copy; 2025 Engineering Class. All rights reserved. |
-        <a href="#" class="text-light text-decoration-none"
-          >Kebijakan Privasi</a
-        >
-        | <a href="#" class="text-light text-decoration-none">FAQ</a>
-      </div>
-    </footer>
-
-    <!-- Bootstrap -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -7,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, var(--cyan-main), white);
+  background: linear-gradient(135deg, #fbd4ee, white, #f3f1ff);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -34,11 +34,7 @@ body {
 }
 
 .login-right {
-  background: linear-gradient(
-    to top left,
-    var(--cyan-main),
-    var(--purple-main)
-  );
+  background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
   color: white;
   display: flex;
   flex-direction: column;
