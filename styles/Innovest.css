@@ -77,12 +77,43 @@ body {
   opacity: 0.8;
   size: 1.5;
 }
+.navbar-custom {
+  background-color: color-mix(
+    in srgb,
+    var(--purple-main) 10%,
+    white
+  ) !important; /* Ganti sesuai warna keinginan */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand,
+.navbar-custom .dropdown-toggle {
+  color: black !important; /* Agar teks tetap terlihat */
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .dropdown-menu a:hover {
+  color: black !important; /* Warna hover kuning misalnya */
+}
+.nav-item:hover {
+  font-weight: bolder;
+}
 
 .gradient-bg {
-  background: linear-gradient(to right, #00bcd4, #0097a7);
+  background: linear-gradient(
+    170deg,
+    var(--purple-main),
+    white,
+    white,
+    #fbd4ee,
+    #fbd4ee
+  );
   color: white;
 }
 
+.bg-investor {
+  background: linear-gradient(170deg, #fbd4ee, white);
+}
 .section-title {
   font-weight: bold;
   margin-bottom: 1rem;
@@ -98,7 +129,7 @@ body {
 }
 
 .btn-gradient {
-  background: linear-gradient(to right, #00bcd4, #0097a7);
+  background: linear-gradient(to right, var(--purple-main), var(--pink-main));
   color: white;
   border: none;
 }

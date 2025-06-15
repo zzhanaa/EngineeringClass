@@ -23,6 +23,7 @@
 
     <link rel="stylesheet" href="styles/Gigsync.css" />
     <title>Engineering Class</title>
+
   </head>
   <body>
 <!-- Navbar -->
@@ -32,16 +33,6 @@
         <a class="navbar-brand" href="#">Engineering Class</a>
 
         <!-- Hamburger Menu untuk HP -->
-        <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarRight"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <!-- Di atas contoh untuk collpase -->
-        <!-- ini untuk yang offside sidebar -->
         <button
           class="navbar-toggler d-lg-none ms-auto"
           type="button"
@@ -52,55 +43,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Di kanan -->
 
-        <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header d-flex justify-content-start align-items-center">
-            <button
-            type="button"
-            class="btn-close ms-0 me-4"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-            >
-            </button>
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Engineering Class</h5>
-          </div>
-          <div class="offcanvas-body ms-4">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Software Class
-              </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Basic Class</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Expert Class</a></li>
-                </ul>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">GigSync</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Innovest</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Tentang Kami</a
-              >
-            </li>
-          </ul>
-          <div class="d-flex btn-group-hover justify-content-center mt-3">
-            <button class="btn sign-up-btn me-2">Sign Up</button>
-            <button class="btn login-btn me-2">Log In</button>
-          </div>
-        </div>
-      </div> -->
         <!-- Menu horizontal (hanya tampil di layar besar) -->
         <div
           class="d-none d-lg-flex align-items-center justify-content-between flex-grow-1"
@@ -190,7 +133,7 @@
   <div class="container">
     <h1 class="display-5 fw-bold text-dark">Temukan dan Tawarkan Jasa Teknik</h1>
     <p class="lead text-dark">Marketplace untuk engineer, desainer, dan ahli simulasi.</p>
-    <a href="#" class="btn btn-dark btn-lg mt-3 text-white">Post Proyek</a>
+    <a href="login.html" class="btn btn-dark btn-lg mt-3 text-white">Post Proyek</a>
   </div>
 </section>
 
@@ -204,33 +147,32 @@
         <hr>
         <div class="mb-3">
           <label class="form-label">Software</label>
-          <select class="form-select">
-            <option>Semua</option>
-            <option>AutoCAD</option>
-            <option>SolidWorks</option>
-            <option>Maxsurf</option>
-            <option>ANSYS</option>
+          <select class="form-select" id="softwareFilter">
+            <option value="all">Semua</option>
+            <option value="autocad">AutoCAD</option>
+            <option value="solidworks">SolidWorks</option>
+            <option value="maxsurf">Maxsurf</option>
+            <option value="ansys">ANSYS</option>
           </select>
         </div>
         <div class="mb-3">
           <label class="form-label">Kategori</label>
-          <select class="form-select">
-            <option>Semua</option>
-            <option>Desain</option>
-            <option>Simulasi</option>
-            <option>3D Modeling</option>
-            <option>Drafting</option>
+          <select class="form-select" id="categoryFilter">
+            <option value="all">Semua</option>
+            <option value="desain">Desain</option>
+            <option value="simulasi">Simulasi</option>
+            <option value="3d modeling">3D Modeling</option>
+            <option value="drafting">Drafting</option>
           </select>
         </div>
-        <button class="btn btn-gradient w-100 mt-2">Terapkan Filter</button>
       </div>
     </div>
 
     <!-- Freelance Board -->
     <div class="col-lg-9">
-      <div class="row g-4">
-        <!-- Card Service -->
-        <div class="col-md-6">
+      <div class="row g-4" id="servicesContainer">
+        <!-- Card Service 1 -->
+        <div class="col-md-6 service-card" data-software="ansys" data-category="simulasi">
           <div class="card card-service p-3 shadow-sm border-0 rounded-4">
             <div class="d-flex align-items-center mb-3">
               <img src="https://i.pravatar.cc/50?img=32" class="rounded-circle me-3" width="50" height="50">
@@ -249,8 +191,8 @@
           </div>
         </div>
 
-        <!-- Repeat Card -->
-        <div class="col-md-6">
+        <!-- Card Service 2 -->
+        <div class="col-md-6 service-card" data-software="autocad" data-category="desain">
           <div class="card card-service p-3 shadow-sm border-0 rounded-4">
             <div class="d-flex align-items-center mb-3">
               <img src="https://i.pravatar.cc/50?img=41" class="rounded-circle me-3" width="50" height="50">
@@ -269,8 +211,85 @@
           </div>
         </div>
 
-        <!-- Tambahkan lebih banyak kartu sesuai kebutuhan -->
+        <!-- Card Service 3 -->
+        <div class="col-md-6 service-card" data-software="solidworks" data-category="3d modeling">
+          <div class="card card-service p-3 shadow-sm border-0 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://i.pravatar.cc/50?img=12" class="rounded-circle me-3" width="50" height="50">
+              <div>
+                <h6 class="mb-0">Budi Modeler</h6>
+                <small class="text-muted">SolidWorks Specialist</small>
+              </div>
+            </div>
+            <h5>3D Modeling Produk Industri</h5>
+            <span class="badge badge-soft rounded-pill">3D Modeling</span>
+            <p class="mt-2 text-muted">Membuat model 3D untuk produk industri dengan detail lengkap dan file STEP/IGES.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">Rp 450.000</span>
+              <button class="btn btn-sm btn-gradient">Chat Sekarang</button>
+            </div>
+          </div>
+        </div>
 
+        <!-- Card Service 4 -->
+        <div class="col-md-6 service-card" data-software="maxsurf" data-category="desain">
+          <div class="card card-service p-3 shadow-sm border-0 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://i.pravatar.cc/50?img=25" class="rounded-circle me-3" width="50" height="50">
+              <div>
+                <h6 class="mb-0">Rudi Marine</h6>
+                <small class="text-muted">Maxsurf Designer</small>
+              </div>
+            </div>
+            <h5>Desain Kapal dengan Maxsurf</h5>
+            <span class="badge badge-soft rounded-pill">Desain</span>
+            <p class="mt-2 text-muted">Desain kapal lengkap dengan analisis hidrostatik menggunakan Maxsurf.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">Rp 750.000</span>
+              <button class="btn btn-sm btn-gradient">Chat Sekarang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Service 5 -->
+        <div class="col-md-6 service-card" data-software="autocad" data-category="drafting">
+          <div class="card card-service p-3 shadow-sm border-0 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://i.pravatar.cc/50?img=38" class="rounded-circle me-3" width="50" height="50">
+              <div>
+                <h6 class="mb-0">Siti Drafting</h6>
+                <small class="text-muted">AutoCAD Drafter</small>
+              </div>
+            </div>
+            <h5>Jasa Drafting AutoCAD 2D</h5>
+            <span class="badge badge-soft rounded-pill">Drafting</span>
+            <p class="mt-2 text-muted">Mengubah sketsa manual menjadi gambar AutoCAD 2D dengan standar industri.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">Rp 250.000</span>
+              <button class="btn btn-sm btn-gradient">Chat Sekarang</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Service 6 -->
+        <div class="col-md-6 service-card" data-software="ansys" data-category="simulasi">
+          <div class="card card-service p-3 shadow-sm border-0 rounded-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://i.pravatar.cc/50?img=47" class="rounded-circle me-3" width="50" height="50">
+              <div>
+                <h6 class="mb-0">Faisal Analysis</h6>
+                <small class="text-muted">ANSYS Expert</small>
+              </div>
+            </div>
+            <h5>Simulasi Termal untuk Komponen Elektronik</h5>
+            <span class="badge badge-soft rounded-pill">Simulasi</span>
+            <p class="mt-2 text-muted">Analisis termal untuk komponen elektronik menggunakan ANSYS Mechanical.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-primary">Rp 600.000</span>
+              <button class="btn btn-sm btn-gradient">Chat Sekarang</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -338,34 +357,36 @@
     ></script>
 
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const softwareSelect = document.querySelector("select.form-select:nth-of-type(1)");
-    const kategoriSelect = document.querySelector("select.form-select:nth-of-type(2)");
-    const cards = document.querySelectorAll(".card-service");
-
-    function filterCards() {
-      const selectedSoftware = softwareSelect.value.toLowerCase();
-      const selectedKategori = kategoriSelect.value.toLowerCase();
-
-      cards.forEach((card) => {
-        const badge = card.querySelector(".badge").textContent.toLowerCase();
-        const softwareText = card.innerText.toLowerCase();
-
-        const matchSoftware =
-          selectedSoftware === "semua" || softwareText.includes(selectedSoftware);
-        const matchKategori =
-          selectedKategori === "semua" || badge.includes(selectedKategori);
-
-        if (matchSoftware && matchKategori) {
-          card.parentElement.style.display = "block";
+  document.addEventListener("DOMContentLoaded", function() {
+    const softwareFilter = document.getElementById("softwareFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const serviceCards = document.querySelectorAll(".service-card");
+    
+    function filterServices() {
+      const selectedSoftware = softwareFilter.value;
+      const selectedCategory = categoryFilter.value;
+      
+      serviceCards.forEach(card => {
+        const cardSoftware = card.getAttribute("data-software");
+        const cardCategory = card.getAttribute("data-category");
+        
+        const softwareMatch = selectedSoftware === "all" || cardSoftware === selectedSoftware;
+        const categoryMatch = selectedCategory === "all" || cardCategory === selectedCategory;
+        
+        if (softwareMatch && categoryMatch) {
+          card.style.display = "block";
         } else {
-          card.parentElement.style.display = "none";
+          card.style.display = "none";
         }
       });
     }
-
-    softwareSelect.addEventListener("change", filterCards);
-    kategoriSelect.addEventListener("change", filterCards);
+    
+    // Filter otomatis saat dropdown berubah
+    softwareFilter.addEventListener("change", filterServices);
+    categoryFilter.addEventListener("change", filterServices);
+    
+    // Jalankan filter pertama kali
+    filterServices();
   });
 </script>
   </body>

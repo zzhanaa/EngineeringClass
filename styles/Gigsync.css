@@ -102,7 +102,6 @@ body {
     170deg,
     var(--purple-main),
     white,
-    #fbd4ee,
     var(--cyan-main)
   );
   color: white;
@@ -129,9 +128,9 @@ body {
 }
 
 .btn-gradient {
-  background: linear-gradient(to right, #00bcd4, #0097a7);
-  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  border: none;
 }
 
 .btn-gradient:hover {
