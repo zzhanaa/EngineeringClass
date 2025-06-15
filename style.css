@@ -62,7 +62,45 @@ body {
   padding: 20px 0;
   width: 100%;
 }
+.navbar-custom {
+  background-color: color-mix(
+    in srgb,
+    var(--purple-main) 10%,
+    white
+  ) !important; /* Ganti sesuai warna keinginan */
+}
 
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand,
+.navbar-custom .dropdown-toggle {
+  color: black !important; /* Agar teks tetap terlihat */
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .dropdown-menu a:hover {
+  color: black !important; /* Warna hover kuning misalnya */
+}
+
+.hero-section {
+  background-image: url("images/home-hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparan putih agar teks tetap terbaca */
+  z-index: -1;
+}
 .hero-btn {
   display: flex;
   justify-content: left;
@@ -77,6 +115,25 @@ body {
   color: white;
 }
 
+.class-list {
+  background-color: color-mix(
+    in srgb,
+    var(--cyan-main) 10%,
+    white
+  ) !important; /* Ganti sesuai warna keinginan */
+}
+
+.col-why {
+  transition: transform 0.3s ease;
+}
+
+.col-why:hover {
+  transform: scale(1.1);
+}
+
+.why-fitur {
+  color: black;
+}
 /* .filter-row {
   margin-bottom: 20px;
   display: flex;
@@ -147,10 +204,6 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
-
-/* Gygsync */
-
-/* Innovest */
 
 @media (max-width: 768px) {
   .hero-btn {

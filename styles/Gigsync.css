@@ -48,9 +48,28 @@ body {
   color: white;
 }
 
+.navbar-custom {
+  background-color: color-mix(
+    in srgb,
+    var(--purple-main) 10%,
+    white
+  ) !important; /* Ganti sesuai warna keinginan */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand,
+.navbar-custom .dropdown-toggle {
+  color: black !important; /* Agar teks tetap terlihat */
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .dropdown-menu a:hover {
+  color: black !important; /* Warna hover kuning misalnya */
+}
 .nav-item:hover {
   font-weight: bolder;
 }
+
 .btn-purple {
   background-color: var(--purple-main);
 }
@@ -79,10 +98,15 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(to right, #00bcd4, #0097a7);
+  background: linear-gradient(
+    170deg,
+    var(--purple-main),
+    white,
+    #fbd4ee,
+    var(--cyan-main)
+  );
   color: white;
 }
-
 .card-service {
   transition: all 0.3s ease;
 }

@@ -26,7 +26,7 @@
   </head>
   <body>
 <!-- Navbar -->
-    <nav class="navbar sticky-top navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar sticky-top navbar navbar-expand-lg navbar-custom">
       <div class="container-fluid justify-content-start">
         <!-- Di kiri -->
         <a class="navbar-brand" href="#">Engineering Class</a>
@@ -188,9 +188,9 @@
     <!-- Hero -->
 <section class="py-5 text-center gradient-bg">
   <div class="container">
-    <h1 class="display-5 fw-bold">Temukan dan Tawarkan Jasa Teknik</h1>
-    <p class="lead">Marketplace untuk engineer, desainer, dan ahli simulasi.</p>
-    <a href="#" class="btn btn-light btn-lg mt-3">Post Proyek</a>
+    <h1 class="display-5 fw-bold text-dark">Temukan dan Tawarkan Jasa Teknik</h1>
+    <p class="lead text-dark">Marketplace untuk engineer, desainer, dan ahli simulasi.</p>
+    <a href="#" class="btn btn-dark btn-lg mt-3 text-white">Post Proyek</a>
   </div>
 </section>
 
@@ -336,5 +336,37 @@
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const softwareSelect = document.querySelector("select.form-select:nth-of-type(1)");
+    const kategoriSelect = document.querySelector("select.form-select:nth-of-type(2)");
+    const cards = document.querySelectorAll(".card-service");
+
+    function filterCards() {
+      const selectedSoftware = softwareSelect.value.toLowerCase();
+      const selectedKategori = kategoriSelect.value.toLowerCase();
+
+      cards.forEach((card) => {
+        const badge = card.querySelector(".badge").textContent.toLowerCase();
+        const softwareText = card.innerText.toLowerCase();
+
+        const matchSoftware =
+          selectedSoftware === "semua" || softwareText.includes(selectedSoftware);
+        const matchKategori =
+          selectedKategori === "semua" || badge.includes(selectedKategori);
+
+        if (matchSoftware && matchKategori) {
+          card.parentElement.style.display = "block";
+        } else {
+          card.parentElement.style.display = "none";
+        }
+      });
+    }
+
+    softwareSelect.addEventListener("change", filterCards);
+    kategoriSelect.addEventListener("change", filterCards);
+  });
+</script>
   </body>
 </html>

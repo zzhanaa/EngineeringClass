@@ -20,7 +20,7 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar sticky-top navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar sticky-top navbar navbar-expand-lg navbar-custom">
       <div class="container-fluid justify-content-start">
         <!-- Di kiri -->
         <a class="navbar-brand" href="#">Engineering Class</a>
@@ -199,7 +199,7 @@
 
         <!-- image -->
          <div class="col-md-6 text-center mt-4 mt-md-0">
-          <img src="file image" alt="Engineering Class Banner" class="img-fluid rounded shadow-sm" style="max-height:400px;">
+          <!-- <img src="file image" alt="Engineering Class Banner" class="img-fluid rounded shadow-sm" style="max-height:400px;"> -->
          </div>
       </div>
       </div>
@@ -218,32 +218,32 @@
 
       <div class="row g-4">
         <!-- Fakta tentang Software Teknik -->
-         <div class="col-md-4">
+         <div class="col-md-4 col-why">
           <div class="card h-100 shadow-sm border-0">
           <div class="card-body text-center">
-            <img src="icon-problem image" alt="Masalah Umum" class="mb-3" width="60">
+            <img src="images/why-case.png" alt="Masalah Umum" class="mb-3" width="100%">
             <h5 class="fw-bold">Masalah Umum</h5>
-            <p class="text-muted">sebanyak bla bla bla responden kesilitan gini gini gini. <br> Solusinya gini gini.</p>
+            <p class="text-muted">Sebanyak 44.4% responden yang berisi mahasiswa teknik kesulitan dalan penggunaan fitur-fitur lanjutan pada software-software engineering dan 22.2% yang masih bingung penerapannya di industri.</p>
           </div>
          </div>
          </div>
         <!-- Keunggulan mentor -->
-         <div class="col-md-4">
+         <div class="col-md-4 col-why">
           <div class="card h-100 shadow-sm border-0">
           <div class="card-body text-center">
-            <img src="icon-mentor image" alt="Mentor Berpengalaman" class="mb-3" width="60">
+            <img src="images/why-mentor.png" alt="Mentor Berpengalaman" class="mb-3" width="100%">
             <h5 class="fw-bold">Mentor Berpengalaman</h5>
             <p class="text-muted">Kelas dipandu oleh profesional di industri teknik & konstruksi nyata.</p>
           </div>
          </div>  
         </div>      
         <!-- Fitur -->
-        <div class="col-md-4">
+        <div class="col-md-4 col-why">
           <div class="card h-100 shadow-sm border-0">
             <div class="card-body text-center">
-              <img src="icon-features image" alt="Firue Unggulan" class="mb-3" width="60">
+              <img src="images/why-fitur.png" alt="Firue Unggulan" class="mb-3" width="100%">
               <h5 class="fw-bold">Fitur Unggulan</h5>
-              <p class="text-muted">Diskusi, tugas, dan sertifikat resmi — semua dalam satu platform.</p>
+              <p class="text-muted">Fitur <a href="Gigsync.html" class="why-fitur">Gigsync</a> dan <a href="Innovest" class="why-fitur">Innovest</a> yang membantu mengaplikasikan kemampuan software engineering, sertifikat resmi. </p>
             </div>
           </div> 
         </div>  
@@ -252,7 +252,7 @@
     </section>
 
     <!-- Daftar kelas -->
-     <section class="bg-light py-5" id="kelas">
+     <section class="class-list py-5" id="kelas">
       <div class="container">
         <div class="row mb-4 text-center">
           <div class="col">
@@ -481,15 +481,15 @@
       <script>
       <!-- DATA KELAS -->
        const kelasData= [
-        {title: "AutoCAD Basic (Online)", tingkat: "Basic", format:"online", software:"AutoCAD"},
-        {title: "Maxsurf Basic (Online)", tingkat: "Basic", format:"online", software:"Maxsurf"},
-        {title: "SketchUp Basic (Online)", tingkat: "Basic", format:"online", software:"SketchUp"},
-        {title: "AutoCAD Basic (Offline)", tingkat: "Basic", format:"offline", software:"AutoCAD"},
-        {title: "Maxsurf Basic (Offline)", tingkat: "Basic", format:"offline", software:"Maxsurf"},
-        {title: "SketchUp Basic (Offline)", tingkat: "Basic", format:"offline", software:"SketchUp"},
-        {title: "AutoCAD Expert (Online)", tingkat: "Expert", format:"online", software:"AutoCAD"},
-        {title: "Maxsurf Expert (Online)", tingkat: "Expert", format:"online", software:"Maxsurf"},
-        {title: "SketchUp Expert (Online)", tingkat: "Expert", format:"online", software:"SketchUp"},
+        {title: "AutoCAD Basic (Online)", tingkat: "Basic", format:"online", software:"AutoCAD", harga:""},
+        {title: "Maxsurf Basic (Online)", tingkat: "Basic", format:"online", software:"Maxsurf", harga:""},
+        {title: "SketchUp Basic (Online)", tingkat: "Basic", format:"online", software:"SketchUp", harga:""},
+        {title: "AutoCAD Basic (Offline)", tingkat: "Basic", format:"offline", software:"AutoCAD", harga:""},
+        {title: "Maxsurf Basic (Offline)", tingkat: "Basic", format:"offline", software:"Maxsurf", harga:""},
+        {title: "SketchUp Basic (Offline)", tingkat: "Basic", format:"offline", software:"SketchUp", harga:""},
+        {title: "AutoCAD Expert (Online)", tingkat: "Expert", format:"online", software:"AutoCAD", harga:""},
+        {title: "Maxsurf Expert (Online)", tingkat: "Expert", format:"online", software:"Maxsurf", harga:""},
+        {title: "SketchUp Expert (Online)", tingkat: "Expert", format:"online", software:"SketchUp", harga:""},
        ];
        let swiper;
       
