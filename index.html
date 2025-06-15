@@ -27,16 +27,6 @@
         <a class="navbar-brand" href="#">  <img src="images/Logo EngiClass-nobg.png" alt="Engineering Class" height="70" class="d-inline-block align-top"></a>
 
         <!-- Hamburger Menu untuk HP -->
-        <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarRight"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <!-- Di atas contoh untuk collpase -->
-        <!-- ini untuk yang offside sidebar -->
         <button
           class="navbar-toggler d-lg-none ms-auto"
           type="button"
@@ -47,55 +37,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Di kanan -->
 
-        <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header d-flex justify-content-start align-items-center">
-            <button
-            type="button"
-            class="btn-close ms-0 me-4"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-            >
-            </button>
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Engineering Class</h5>
-          </div>
-          <div class="offcanvas-body ms-4">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Software Class
-              </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Basic Class</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Expert Class</a></li>
-                </ul>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">GigSync</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Innovest</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Tentang Kami</a
-              >
-            </li>
-          </ul>
-          <div class="d-flex btn-group-hover justify-content-center mt-3">
-            <button class="btn sign-up-btn me-2">Sign Up</button>
-            <button class="btn login-btn me-2">Log In</button>
-          </div>
-        </div>
-      </div> -->
         <!-- Menu horizontal (hanya tampil di layar besar) -->
         <div
           class="d-none d-lg-flex align-items-center justify-content-between flex-grow-1"
@@ -263,178 +205,51 @@
           </div>
         </div>
 
-        <!-- Opsi -->
-         <div class="row mb-4">
-          <!-- FILTER -->
-          <!-- <div class="col-md-4 md-2">
-             <select class="form-select" id="filter-software">
-              <option selected>Semua</option>
-              <option>AutoCAD</option>
-              <option>SketchUp</option>
-              <option>Maxsurf</option>
-             </select>
+        <!-- Filter -->
+        <div class="d-flex flex-column flex-md-row gap-2 mb-4">
+          <select id="filter-software" class="form-select">
+            <option value="semua">Semua Software</option>
+            <option value="AutoCAD">AutoCAD</option>
+            <option value="SketchUp">SketchUp</option>
+            <option value="Maxsurf">Maxsurf</option>
+            <option value="Matlab">MATLAB</option>
+            <option value="Semua">Semua Software</option>
+          </select>
 
-             <div class="col-md-4 mb-2">
-              <select class="form-select" id="filter-tingkat">
-                <option selected>Semua</option>
-                <option>Basic</option>
-                <option>Expert</option>
-              </select>
-             </div>
+          <select id="filter-tingkat" class="form-select">
+            <option value="semua">Semua Tingkat</option>
+            <option value="Basic">Basic</option>
+            <option value="Expert">Expert</option>
+            <option value="Semua">Semua</option>
+          </select>
 
-             <div class="col-md-4 mb-2">
-              <select class="form-select" id="filter-format">
-                <option selected>Semua</option>
-                <option>Online</option>
-                <option>Offline</option>
-              </select>
-             </div>
-          </div> -->
-            <!-- FILTER PAKAI SWEEPER -->
-             <!-- <div class="d-flex flex-column flex-md-row gap-2">
-              <select id="filter-tingkat" class="form-select">
-                <option value="semua">Semua Tingkat</option>
-                <option value="basic">Basic</option>
-                <option value="expert">Expert</option>
-              </select>
+          <select id="filter-format" class="form-select">
+            <option value="semua">Semua Format</option>
+            <option value="Video + Modul">Video + Modul</option>
+            <option value="Video + Modul + Live Class + Record">Live Class</option>
+            <option value="Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade">Full Package</option>
+          </select>
 
-              <select id="filter-format"  class="form-select">
-                <option value="semua">Semua Format</option>
-                <option value="online">Online</option>
-                <option value="offline">Offline</option>
-              </select>
+          <select id="filter-waktu" class="form-select">
+            <option value="semua">Semua Durasi</option>
+            <option value="1 Bulan">1 Bulan</option>
+            <option value="3 Bulan">3 Bulan</option>
+            <option value="6 Bulan">6 Bulan</option>
+          </select>
 
-              <select id="filter-software" class="form-select">
-                <option value="semua">Semua Software</option>
-                <option value="AutoCAD">AutoCAD</option>
-                <option value="Maxsurf">Maxsurf</option>
-                <option value="SkethUp">SketchUp</option>
-              </select>
+          <button id="btn-search" class="btn btn-primary btn-purple">Search</button>
+          <button id="btn-reset" class="btn btn-secondary">Reset</button>
+        </div>
 
-              <button id="btn-search" class="btn btn-primary btn-purple">Search</button>
-              <button id="btn-reset" class="btn btn-secondary">Reset</button>
-             </div> -->
-            <!-- Di bagian filter (ganti select software menjadi jangka waktu) -->
-<div class="d-flex flex-column flex-md-row gap-2">
-  <select id="filter-tingkat" class="form-select">
-    <option value="semua">Semua Tingkat</option>
-    <option value="Basic">Basic</option>
-    <option value="Expert">Expert</option>
-    <option value="Semua">Semua</option>
-  </select>
-
-  <select id="filter-format" class="form-select">
-    <option value="semua">Semua Format</option>
-    <option value="Video + Modul">Video + Modul</option>
-    <option value="Video + Modul + Live Class + Record">Live Class</option>
-    <option value="Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade">Full Package</option>
-  </select>
-
-  <select id="filter-waktu" class="form-select">
-    <option value="semua">Semua Durasi</option>
-    <option value="1 Bulan">1 Bulan</option>
-    <option value="3 Bulan">3 Bulan</option>
-    <option value="6 Bulan">6 Bulan</option>
-  </select>
-
-  <button id="btn-search" class="btn btn-primary btn-purple">Search</button>
-  <button id="btn-reset" class="btn btn-secondary">Reset</button>
-</div>
-
-          <!-- Kelas -->
-           <!-- <div id="kelasCarousel" class="carousel slide" data-bs-ride="carousel">
-           <div class="carousel-inner">
-             <div class="col-md-4 class card" 
-              data-software="AutoCAD"
-              data-tingkat="Basic"
-              data-format="Online">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h5 class=""fw-bold>AutoCAD Basic</h5>
-                  <p class="text-muted mb-1">Mentor: XXXXX</p>
-                  <p class="text-muted mb-1">Online</p>
-                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
-                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
-                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
-                </div>
-              </div>
-             </div>
-
-             <div class="col-md-4 class card" 
-              data-software="AutoCAD"
-              data-tingkat="Basic"
-              data-format="Offline">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h5 class=""fw-bold>AutoCAD Basic</h5>
-                  <p class="text-muted mb-1">Mentor: XXXXX</p>
-                  <p class="text-muted mb-1">Offline</p>
-                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
-                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
-                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
-                </div>
-              </div>
-             </div>
-
-             <div class="col-md-4 class card" 
-              data-software="SketchUp"
-              data-tingkat="Basic"
-              data-format="Online">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h5 class=""fw-bold>SketchUp Basic</h5>
-                  <p class="text-muted mb-1">Mentor: XXXXX</p>
-                  <p class="text-muted mb-1">Online</p>
-                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
-                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
-                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
-                </div>
-              </div>
-             </div>
-
-             <div class="col-md-4 class card" 
-              data-software="Maxsurf"
-              data-tingkat="Basic"
-              data-format="Online">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h5 class=""fw-bold>Maxsurf Basic</h5>
-                  <p class="text-muted mb-1">Mentor: XXXXX</p>
-                  <p class="text-muted mb-1">Online</p>
-                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
-                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
-                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
-                </div>
-              </div>
-             </div>
-
-             <div class="col-md-4 class card" 
-              data-software="Maxsurf"
-              data-tingkat="Basic"
-              data-format="Online">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h5 class=""fw-bold>Maxsurf Basic</h5>
-                  <p class="text-muted mb-1">Mentor: XXXXX</p>
-                  <p class="text-muted mb-1">Online</p>
-                  <p class="text-primary fw-semibold mb-3">RpXXX</p>
-                  <a href="#" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
-                  <a href="#" class="'btn btn-sm btn-primary ms-2">Daftar</a>
-                </div>
-              </div>
-             </div>
-           </div>
-           </div> -->
-         <!-- List kelas diisi di JS -->
-          <div class="swiper-container">
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper" id="kelas-wrapper">
-              </div>
-              <div class="swiper-button-next btn-next"></div>
-              <div class="swiper-button-prev btn-prev"></div>
-              <div class="swiper-pagination btn-pag"></div>
+        <!-- List kelas diisi di JS -->
+        <div class="swiper-container">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper" id="kelas-wrapper">
+            </div>
+            <div class="swiper-button-next btn-next"></div>
+            <div class="swiper-button-prev btn-prev"></div>
+            <div class="swiper-pagination btn-pag"></div>
           </div>
-         </div>
         </div>
       </div>
      </section>
@@ -502,136 +317,125 @@
     <!-- swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-
     <!-- Filter Daftar Kelas -->
-     <!-- SWIPER JS -->
-      <script>
+    <script>
       <!-- DATA KELAS -->
-       const kelasData = [
-  {title: "Bronze Kelas (Basic)", tingkat: "Basic", format:"Video + Modul", waktu:"3 Bulan", harga:"150000"},
-  {title: "Bronze Kelas (Expert)", tingkat: "Expert", format:"Video + Modul", waktu:"3 Bulan", harga:"250000"},
-  {title: "Silver Kelas (Basic)", tingkat: "Basic", format:"Video + Modul + Live Class + Record", waktu:"3 Bulan", harga:"300000"},
-  {title: "Silver Kelas (Expert)", tingkat: "Expert", format:"Video + Modul + Live Class + Record", waktu:"3 Bulan", harga:"500000"},
-  {title: "Gold", tingkat: "Semua", format:"Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade", waktu:"3 Bulan", harga:"750000"},
-  {title: "Temu", tingkat: "Semua", format:"Video + Modul + Live Class + Record + Konsultasi dengan Expert", waktu:"1 Rangkaian Sesi", harga:"750000"},
-];
+      const kelasData = [
+        {title: "AutoCAD Bronze (Basic)", tingkat: "Basic", software: "AutoCAD", format: "Video + Modul", waktu: "3 Bulan", harga: "150000"},
+        {title: "AutoCAD Bronze (Expert)", tingkat: "Expert", software: "AutoCAD", format: "Video + Modul", waktu: "3 Bulan", harga: "250000"},
+        {title: "AutoCAD Silver (Basic)", tingkat: "Basic", software: "AutoCAD", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "300000"},
+        {title: "AutoCAD Silver (Expert)", tingkat: "Expert", software: "AutoCAD", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "500000"},
+        {title: "AutoCAD Gold", tingkat: "Semua", software: "AutoCAD", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade", waktu: "3 Bulan", harga: "750000"},
+        {title: "AutoCAD Temu", tingkat: "Semua", software: "AutoCAD", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert", waktu: "1 Rangkaian Sesi", harga: "750000"},
+        
+        {title: "SketchUp Bronze (Basic)", tingkat: "Basic", software: "SketchUp", format: "Video + Modul", waktu: "3 Bulan", harga: "150000"},
+        {title: "SketchUp Bronze (Expert)", tingkat: "Expert", software: "SketchUp", format: "Video + Modul", waktu: "3 Bulan", harga: "250000"},
+        {title: "SketchUp Silver (Basic)", tingkat: "Basic", software: "SketchUp", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "300000"},
+        {title: "SketchUp Silver (Expert)", tingkat: "Expert", software: "SketchUp", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "500000"},
+        {title: "SketchUp Gold", tingkat: "Semua", software: "SketchUp", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade", waktu: "3 Bulan", harga: "750000"},
+        {title: "SketchUp Temu", tingkat: "Semua", software: "SketchUp", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert", waktu: "1 Rangkaian Sesi", harga: "750000"},
+        
+        {title: "Maxsurf Bronze (Basic)", tingkat: "Basic", software: "Maxsurf", format: "Video + Modul", waktu: "3 Bulan", harga: "150000"},
+        {title: "Maxsurf Bronze (Expert)", tingkat: "Expert", software: "Maxsurf", format: "Video + Modul", waktu: "3 Bulan", harga: "250000"},
+        {title: "Maxsurf Silver (Basic)", tingkat: "Basic", software: "Maxsurf", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "300000"},
+        {title: "Maxsurf Silver (Expert)", tingkat: "Expert", software: "Maxsurf", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "500000"},
+        {title: "Maxsurf Gold", tingkat: "Semua", software: "Maxsurf", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade", waktu: "3 Bulan", harga: "750000"},
+        {title: "Maxsurf Temu", tingkat: "Semua", software: "Maxsurf", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert", waktu: "1 Rangkaian Sesi", harga: "750000"},
+        
+        {title: "MATLAB Bronze (Basic)", tingkat: "Basic", software: "MATLAB", format: "Video + Modul", waktu: "3 Bulan", harga: "150000"},
+        {title: "MATLAB Bronze (Expert)", tingkat: "Expert", software: "MATLAB", format: "Video + Modul", waktu: "3 Bulan", harga: "250000"},
+        {title: "MATLAB Silver (Basic)", tingkat: "Basic", software: "MATLAB", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "300000"},
+        {title: "MATLAB Silver (Expert)", tingkat: "Expert", software: "MATLAB", format: "Video + Modul + Live Class + Record", waktu: "3 Bulan", harga: "500000"},
+        {title: "MATLAB Gold", tingkat: "Semua", software: "MATLAB", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert + CV Upgrade", waktu: "3 Bulan", harga: "750000"},
+        {title: "MATLAB Temu", tingkat: "Semua", software: "MATLAB", format: "Video + Modul + Live Class + Record + Konsultasi dengan Expert", waktu: "1 Rangkaian Sesi", harga: "750000"},
+      ];
 
-let swiper;
+      let swiper;
 
-function renderKelas(filterTingkat, filterFormat, filterWaktu) {
-  const wrapper = document.getElementById('kelas-wrapper');
-  wrapper.innerHTML = '';
+      function renderKelas(filterSoftware, filterTingkat, filterFormat, filterWaktu) {
+        const wrapper = document.getElementById('kelas-wrapper');
+        wrapper.innerHTML = '';
 
-  // Filter data sesuai pilihan
-  const filteredKelas = kelasData.filter(kelas => {
-    return (filterTingkat === 'semua' || kelas.tingkat === filterTingkat) &&
-           (filterFormat === 'semua' || kelas.format === filterFormat) &&
-           (filterWaktu === 'semua' || kelas.waktu === filterWaktu);
-  });
-
-  if (filteredKelas.length === 0) {
-    wrapper.innerHTML = `
-      <div class="text-center py-5 w-100">
-        <p>Tidak ada kelas yang sesuai dengan filter</p>
-      </div>
-    `;
-  } else {
-    filteredKelas.forEach(kelas => {
-      const slide = document.createElement('div');
-      slide.className = 'swiper-slide';
-      slide.innerHTML = `
-        <div class="kelas-card">
-          <h5 class="text-center">${kelas.title}</h5>
-          <p class="text-muted px-3">Jangka Waktu: ${kelas.waktu}</p>
-          <p class="text-muted px-3">Level: ${kelas.tingkat}</p>
-          <p class="text-muted px-3">Format: ${kelas.format}</p>
-          <p class="text-primary fw-bold px-3 price">${kelas.harga === "Custom" ? "Harga Custom" : "Rp" + kelas.harga}</p>
-          <button class="btn btn-sm btn-primary mx-3 mb-2 btn-purple">Daftar Sekarang</button>
-        </div>
-      `;
-      wrapper.appendChild(slide);
-    });
-  }
-
-  // Inisialisasi atau update Swiper
-  if (swiper) {
-    swiper.destroy(true, true);
-  }
-
-  swiper = new Swiper('.mySwiper', {
-    slidesPerView: 3,
-    slidesPerGroup: 1,
-    spaceBetween: 20,
-    loop: false,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      0: { slidesPerView: 1, slidesPerGroup: 1 },
-      768: { slidesPerView: 2, slidesPerGroup: 1 },
-      992: { slidesPerView: 3, slidesPerGroup: 1 }
-    }
-  });
-}
-
-// Event Listeners
-document.getElementById('btn-search').addEventListener('click', () => {
-  const tingkat = document.getElementById('filter-tingkat').value;
-  const format = document.getElementById('filter-format').value;
-  const waktu = document.getElementById('filter-waktu').value;
-  renderKelas(tingkat, format, waktu);
-});
-
-document.getElementById('btn-reset').addEventListener('click', () => {
-  document.getElementById('filter-tingkat').value = 'semua';
-  document.getElementById('filter-format').value = 'semua';
-  document.getElementById('filter-waktu').value = 'semua';
-  renderKelas('semua', 'semua', 'semua');
-});
-
-// Inisialisasi awal
-document.addEventListener('DOMContentLoaded', () => {
-  renderKelas('semua', 'semua', 'semua');
-});
-    </script>
-     <!-- <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const softwareFilter = document.getElementById("filter-software");
-          const tingkatFilter = document.getElementById("filter-tingkat");
-          const formatFilter = document.getElementById("filter-format");
-          const classCards = document.querySelectorAll(".class");
-
-          function filterClasses() {
-            const selectedSoftware = softwareFilter.value;
-            const selectedTingkat = tingkatFilter.value;
-            const selectedFormat = formatFilter.value;
-
-            classCards.forEach(card => {
-              const software = card.getAttribute("data-software");
-              const tingkat = card.getAttribute("data-tingkat");
-              const format = card.getAttribute("data-format");
-
-              const matchSoftware = selectedSoftware === "Semua" || software === selectedSoftware;
-              const matchTingkat = selectedTingkat === "Semua" || tingkat === selectedTingkat;
-              const matchFormat = selectedFormat === "Semua" || format === selectedFormat;
-
-              if (matchSoftware && matchTingkat && matchFormat) {
-                card.style.display = "block";
-              } else {
-                card.style.display = "none";
-              }
-            });
-          }
-
-          softwareFilter.addEventListener("change", filterClasses);
-          tingkatFilter.addEventListener("change", filterClasses);
-          formatFilter.addEventListener("change", filterClasses);
+        // Filter data sesuai pilihan
+        const filteredKelas = kelasData.filter(kelas => {
+          return (filterSoftware === 'semua' || kelas.software === filterSoftware) &&
+                 (filterTingkat === 'semua' || kelas.tingkat === filterTingkat) &&
+                 (filterFormat === 'semua' || kelas.format === filterFormat) &&
+                 (filterWaktu === 'semua' || kelas.waktu === filterWaktu);
         });
-      </script> -->
+
+        if (filteredKelas.length === 0) {
+          wrapper.innerHTML = `
+            <div class="text-center py-5 w-100">
+              <p>Tidak ada kelas yang sesuai dengan filter</p>
+            </div>
+          `;
+        } else {
+          filteredKelas.forEach(kelas => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+              <div class="kelas-card">
+                <h5 class="text-center">${kelas.title}</h5>
+                <p class="text-muted px-3">Software: ${kelas.software}</p>
+                <p class="text-muted px-3">Level: ${kelas.tingkat}</p>
+                <p class="text-muted px-3">Jangka Waktu: ${kelas.waktu}</p>
+                <p class="text-muted px-3">Format: ${kelas.format}</p>
+                <p class="text-primary fw-bold px-3 price">${kelas.harga === "Custom" ? "Harga Custom" : "Rp" + kelas.harga}</p>
+                <button class="btn btn-sm btn-primary mx-3 mb-2 btn-purple">Daftar Sekarang</button>
+              </div>
+            `;
+            wrapper.appendChild(slide);
+          });
+        }
+
+        // Inisialisasi atau update Swiper
+        if (swiper) {
+          swiper.destroy(true, true);
+        }
+
+        swiper = new Swiper('.mySwiper', {
+          slidesPerView: 3,
+          slidesPerGroup: 1,
+          spaceBetween: 20,
+          loop: false,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            0: { slidesPerView: 1, slidesPerGroup: 1 },
+            768: { slidesPerView: 2, slidesPerGroup: 1 },
+            992: { slidesPerView: 3, slidesPerGroup: 1 }
+          }
+        });
+      }
+
+      // Event Listeners
+      document.getElementById('btn-search').addEventListener('click', () => {
+        const software = document.getElementById('filter-software').value;
+        const tingkat = document.getElementById('filter-tingkat').value;
+        const format = document.getElementById('filter-format').value;
+        const waktu = document.getElementById('filter-waktu').value;
+        renderKelas(software, tingkat, format, waktu);
+      });
+
+      document.getElementById('btn-reset').addEventListener('click', () => {
+        document.getElementById('filter-software').value = 'semua';
+        document.getElementById('filter-tingkat').value = 'semua';
+        document.getElementById('filter-format').value = 'semua';
+        document.getElementById('filter-waktu').value = 'semua';
+        renderKelas('semua', 'semua', 'semua', 'semua');
+      });
+
+      // Inisialisasi awal
+      document.addEventListener('DOMContentLoaded', () => {
+        renderKelas('semua', 'semua', 'semua', 'semua');
+      });
+    </script>
   </body>
 </html>
